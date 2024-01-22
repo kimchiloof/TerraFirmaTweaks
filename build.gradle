@@ -55,8 +55,6 @@ minecraft {
 
     runs {
         configureEach {
-            workingDirectory project.file('run')
-
             // Logging levels; separate by comma.
             // "SCAN": For mods scan.
             // "REGISTRIES": For firing of registry events.
@@ -76,6 +74,7 @@ minecraft {
         }
 
         client {
+            workingDirectory project.file('run/client')
             property 'forge.enabledGameTestNamespaces', mod_id
             args "--username", "Dev"
         }
@@ -87,6 +86,7 @@ minecraft {
         }
 
         gameTestServer {
+            workingDirectory project.file('run/test')
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
