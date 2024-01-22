@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "mods.kimchiloof.forge_1_20_1_template.mixin",
+  "package": "mods.kimchiloof.forge_1_20_1.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "Forge-1.20.1-Template.refmap.json",
+  "refmap": "forge_1_20_1.refmap.json",
   "mixins": [
   ],
   "client": [
