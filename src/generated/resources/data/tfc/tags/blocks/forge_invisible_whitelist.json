@@ -1,0 +1,6 @@
+{
+  "values": [
+    "create:basin",
+    "create:fluid_tank"
+  ]
+}

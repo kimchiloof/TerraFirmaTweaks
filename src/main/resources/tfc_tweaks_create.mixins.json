@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tfc_tweaks_create.refmap.json",
   "mixins": [
+    "BasinBlockEntityMixin",
   ],
   "client": [
   ],
