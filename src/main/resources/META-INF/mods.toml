@@ -37,3 +37,17 @@ license="${mod_license}"
    versionRange="${minecraft_version_range}"
    ordering="NONE"
    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="tfc"
+    mandatory=true
+    versionRange="${tfc_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+   modId="create"
+   mandatory=true
+   versionRange="${create_version_range}"
+   ordering="AFTER"
+   side="BOTH"

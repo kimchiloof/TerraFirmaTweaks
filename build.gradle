@@ -13,25 +13,19 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
-
-apply plugin: 'org.spongepowered.mixin'
 
 group = "mod.${mod_publisher}.${mod_id}"
 version = "${mod_version}-${minecraft_version}"
 
-base {
-    archivesName = mod_id
-}
+base { archivesName = mod_id }
 
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
-}
+java { toolchain.languageVersion = JavaLanguageVersion.of(17) }
 
 idea {
-    module {
-        excludeDirs.add(file("run"))
-    }
+    module { excludeDirs.add(file("run")) }
 }
 
 minecraft {
@@ -65,6 +59,10 @@ minecraft {
             // Recommended logging level for the console
             // https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+
+            // Mixin Remapping Fix
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 "${mod_id}" {
@@ -108,15 +106,35 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     // Dependency repositories
-    // ...
-
+    maven { url = "https://maven.blamejared.com/" }
+    maven { url = 'https://maven.tterrag.com/' }
+    maven {
+        url = "https://cursemaven.com/"
+        content { includeGroup "curse.maven" }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Dependencies
-    // ...
+
+    // JEI
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    // Patchouli
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}")
+
+    // Create, Flywheel, Registrate
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    // TerraFirmaCraft
+    implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -125,6 +143,8 @@ processResources {
     var replaceProperties = [
             minecraft_version_range: minecraft_version_range,
             forge_version_range: forge_version_range,
+            tfc_version_range: tfc_version_range,
+            create_version_range: create_version_range,
 
             mod_id: mod_id,
             mod_name: mod_name,
