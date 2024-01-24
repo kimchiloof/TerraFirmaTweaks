@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "mods.kimchiloof.terrafirmatweaks.mixin",
+  "plugin": "mods.kimchiloof.terrafirmatweaks.TweaksMixinPluginManager",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tfc_tweaks_create.refmap.json",
+  "mixins": [
+    "BasinHeatMixin",
+    "BasinJEIBlazeBurnerBlockMixin",
+    "BasinJEIBlazeBurnerItemsMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

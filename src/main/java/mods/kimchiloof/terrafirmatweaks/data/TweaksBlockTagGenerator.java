@@ -1,8 +1,8 @@
-package mods.kimchiloof.tfc_tweaks_create.data;
+package mods.kimchiloof.terrafirmatweaks.data;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllTags;
-import mods.kimchiloof.tfc_tweaks_create.TFCTweaksCreate;
+import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import net.dries007.tfc.common.TFCTags;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.minecraft.core.HolderLookup;
@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class TweaksBlockTagGenerator extends BlockTagsProvider {
     public TweaksBlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, TFCTweaksCreate.MODID, existingFileHelper);
+        super(output, lookupProvider, TerraFirmaTweaks.MOD_ID, existingFileHelper);
     }
 
     @Override

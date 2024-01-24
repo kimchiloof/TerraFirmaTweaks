@@ -28,6 +28,8 @@ idea {
     module { excludeDirs.add(file("run")) }
 }
 
+jarJar.enable()
+
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
@@ -106,6 +108,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     // Dependency repositories
+    maven { url = "https://maven.shedaniel.me/" }
     maven { url = "https://maven.blamejared.com/" }
     maven { url = 'https://maven.tterrag.com/' }
     maven {
@@ -118,6 +121,10 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Dependencies
+
+    // Cloth Config
+    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
+    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
 
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")

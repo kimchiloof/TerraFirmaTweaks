@@ -1,6 +1,6 @@
-package mods.kimchiloof.tfc_tweaks_create.data;
+package mods.kimchiloof.terrafirmatweaks.data;
 
-import mods.kimchiloof.tfc_tweaks_create.TFCTweaksCreate;
+import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = TFCTweaksCreate.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = TerraFirmaTweaks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
