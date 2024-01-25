@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 public class TerraFirmaTweaks {
     public static final String MOD_ID = "terrafirmatweaks";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final String COMMON_CONFIG_FILE_NAME = MOD_ID + "-common.toml";
 
     public TerraFirmaTweaks() {
         configSetup();
@@ -27,7 +28,8 @@ public class TerraFirmaTweaks {
         // Register config
         ModLoadingContext.get().registerConfig(
                 ModConfig.Type.COMMON,
-                TweaksConfig.SPEC
+                TweaksConfig.SPEC,
+                COMMON_CONFIG_FILE_NAME
         );
 
         // Load config GUI

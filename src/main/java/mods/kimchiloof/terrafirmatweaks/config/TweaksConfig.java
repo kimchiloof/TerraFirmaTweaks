@@ -1,6 +1,7 @@
 package mods.kimchiloof.terrafirmatweaks.config;
 
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
+import mods.kimchiloof.terrafirmatweaks.util.MixinUtils;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
 import net.minecraftforge.fml.common.Mod;
@@ -18,12 +19,12 @@ public class TweaksConfig {
                 overrideBasinHeat = BUILDER
                         .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
                         .worldRestart()
-                        .define("overrideBasinHeat", false);
+                        .define(MixinUtils.Configs.BasinHeatMixin.toString(), false);
 
                 overrideBasinJEIBlazeBurner = BUILDER
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
-                        .define("overrideBasinJEIBlazeBurner", false);
+                        .define(MixinUtils.Configs.BasinJEIBlazeBurnerMixin.toString(), false);
 
                 BUILDER.pop();
             }
