@@ -28,6 +28,8 @@ idea {
     module { excludeDirs.add(file("run")) }
 }
 
+jarJar.enable()
+
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
@@ -117,6 +119,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Dependencies
 
@@ -141,7 +144,8 @@ dependencies {
     // TerraFirmaCraft
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    // Non-Minecraft Dependencies
+    jarJar group: "com.moandjiezana.toml", name: "toml4j", version: "[${toml4j_version},)"
 }
 
 processResources {
