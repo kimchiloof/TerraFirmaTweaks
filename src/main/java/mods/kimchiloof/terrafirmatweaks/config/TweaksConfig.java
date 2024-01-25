@@ -19,12 +19,12 @@ public class TweaksConfig {
                 overrideBasinHeat = BUILDER
                         .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
                         .worldRestart()
-                        .define(MixinUtils.Configs.BasinHeatMixin.toString(), false);
+                        .define(MixinUtils.Configs.BasinHeatMixin.toString(), true);
 
                 overrideBasinJEIBlazeBurner = BUILDER
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
-                        .define(MixinUtils.Configs.BasinRecipeJEIMixins.toString(), false);
+                        .define(MixinUtils.Configs.BasinRecipeJEIMixins.toString(), true);
 
                 BUILDER.pop();
             }
