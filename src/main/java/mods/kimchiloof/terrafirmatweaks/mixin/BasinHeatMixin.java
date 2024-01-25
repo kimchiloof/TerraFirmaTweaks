@@ -8,6 +8,7 @@ import com.simibubi.create.foundation.utility.BlockHelper;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
+import net.dries007.tfc.common.blocks.devices.CharcoalForgeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,9 +19,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BasinHeatMixin {
     @Inject(at = @At("HEAD"), method = "getHeatLevelOf", cancellable = true, remap = false)
     private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<HeatLevel> cir) {
-        if (state.getBlock().equals(TFCBlocks.CHARCOAL_FORGE.get())) {
+        if (state.hasProperty(CharcoalForgeBlock.HEAT)) {
             // Charcoal forge heat
-            int heat = state.getValue(TFCBlockStateProperties.HEAT_LEVEL);
+            int heat = state.getValue(CharcoalForgeBlock.HEAT);
 
             // Heat depending on the heat level of the forge
             if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get()) {
