@@ -3,6 +3,7 @@ plugins {
     id "org.parchmentmc.librarian.forgegradle" version "1.+"
     id "org.spongepowered.mixin" version "0.7.+"
     id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "java"
     id "eclipse"
     id "idea"
 }
@@ -17,7 +18,6 @@ java { toolchain.languageVersion = JavaLanguageVersion.of(17) }
 idea {
     module { excludeDirs.add(file("run")) }
 }
-
 
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
@@ -132,9 +132,6 @@ dependencies {
 
     // TerraFirmaCraft
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
-
-    // Non-Minecraft Dependencies
-//    shade "com.moandjiezana.toml:toml4j:${toml4j_version}"
 }
 
 processResources {

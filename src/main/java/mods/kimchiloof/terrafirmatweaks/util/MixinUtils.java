@@ -1,10 +1,12 @@
 package mods.kimchiloof.terrafirmatweaks.util;
 
-import me.shedaniel.cloth.clothconfig.shadowed.com.moandjiezana.toml.Toml;
+import com.electronwill.nightconfig.core.file.FileNotFoundAction;
+import com.electronwill.nightconfig.toml.TomlParser;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class MixinUtils {
@@ -25,23 +27,25 @@ public class MixinUtils {
         BasinRecipeJEIMixins
     }
 
+    private static boolean shownMissingConfigWarning = false;
     public static boolean isEarlyConfigEnabled(String mod_id, MixinUtils.Configs configKey) {
         String config = configKey.toString();
 
         Path configPath = FMLPaths.CONFIGDIR.get().resolve(TerraFirmaTweaks.COMMON_CONFIG_FILE_NAME);
-        Toml configFile;
 
-        try {
-            configFile = new Toml().read(configPath.toFile());
-        } catch (Exception e) {
-            TerraFirmaTweaks.LOGGER.error("TOML Config file error: {}", e.toString());
+        if (Files.notExists(configPath)) {
+            if (!shownMissingConfigWarning) {
+                TerraFirmaTweaks.LOGGER.warn("TerraFirmaTweaks config file not found, disabling mixins");
+                shownMissingConfigWarning = true;
+            }
             return false;
         }
 
-        Boolean mixinEnabled = configFile.getBoolean(mod_id + ".mixin." + config);
+        TomlParser parser = new TomlParser();
+        Boolean mixinEnabled = parser.parse(configPath, FileNotFoundAction.READ_NOTHING).get(mod_id + ".mixin." + config);
 
         if (mixinEnabled == null) {
-            TerraFirmaTweaks.LOGGER.error("TOML Config file error: {} is null", config);
+            TerraFirmaTweaks.LOGGER.error("Config file error: {} is null, disabling", config);
             return false;
         } else {
             return mixinEnabled;
