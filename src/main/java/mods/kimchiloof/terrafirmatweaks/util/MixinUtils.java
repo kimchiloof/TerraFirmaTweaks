@@ -13,8 +13,8 @@ public class MixinUtils {
      */
     public enum Mixins {
         BasinHeatMixin,
-        BasinJEIBlazeBurnerBlockMixin,
-        BasinJEIBlazeBurnerItemsMixin
+        BasinRecipeJEIBlockMixin,
+        BasinRecipeJEIItemsMixin
     }
 
     /**
@@ -22,7 +22,7 @@ public class MixinUtils {
      */
     public enum Configs {
         BasinHeatMixin,
-        BasinJEIBlazeBurnerMixin
+        BasinRecipeJEIMixins
     }
 
     public static boolean isEarlyConfigEnabled(String mod_id, MixinUtils.Configs configKey) {

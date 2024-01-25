@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = AnimatedBlazeBurner.class, remap = false)
-public abstract class BasinJEIBlazeBurnerBlockMixin extends AnimatedKinetics {
+public abstract class BasinRecipeJEIBlockMixin extends AnimatedKinetics {
     @Shadow
     private HeatLevel heatLevel;
 

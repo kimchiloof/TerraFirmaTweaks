@@ -7,8 +7,8 @@
   "refmap": "terrafirmatweaks.refmap.json",
   "mixins": [
     "BasinHeatMixin",
-    "BasinJEIBlazeBurnerBlockMixin",
-    "BasinJEIBlazeBurnerItemsMixin"
+    "BasinRecipeJEIBlockMixin",
+    "BasinRecipeJEIItemsMixin"
   ],
   "client": [
   ],

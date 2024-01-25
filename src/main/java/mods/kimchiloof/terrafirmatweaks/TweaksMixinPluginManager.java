@@ -17,11 +17,11 @@ public class TweaksMixinPluginManager implements IMixinConfigPlugin {
             MixinUtils.Mixins.BasinHeatMixin.toString(),
                     isEarlyConfigEnabled("create", MixinUtils.Configs.BasinHeatMixin)
                     && isEarlyModLoaded("create"),
-            MixinUtils.Mixins.BasinJEIBlazeBurnerBlockMixin.toString(),
-                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinJEIBlazeBurnerMixin)
+            MixinUtils.Mixins.BasinRecipeJEIBlockMixin.toString(),
+                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
                     && isEarlyModLoaded("create"),
-            MixinUtils.Mixins.BasinJEIBlazeBurnerItemsMixin.toString(),
-                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinJEIBlazeBurnerMixin)
+            MixinUtils.Mixins.BasinRecipeJEIItemsMixin.toString(),
+                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
                     && isEarlyModLoaded("create")
     );
 

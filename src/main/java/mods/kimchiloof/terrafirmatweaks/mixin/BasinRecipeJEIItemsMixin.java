@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Mixin(BasinCategory.class)
-public class BasinJEIBlazeBurnerItemsMixin {
+public class BasinRecipeJEIItemsMixin {
     @Inject(
             at = @At(
                     value = "FIELD",

@@ -24,7 +24,7 @@ public class TweaksConfig {
                 overrideBasinJEIBlazeBurner = BUILDER
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
-                        .define(MixinUtils.Configs.BasinJEIBlazeBurnerMixin.toString(), false);
+                        .define(MixinUtils.Configs.BasinRecipeJEIMixins.toString(), false);
 
                 BUILDER.pop();
             }
