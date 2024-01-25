@@ -46,15 +46,15 @@ license="${mod_license}"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
-   modId="create"
-   mandatory=true
-   versionRange="${create_version_range}"
-   ordering="AFTER"
-   side="BOTH"
-
-[[dependencies.${mod_id}]]
     modId="cloth_config"
     mandatory=false
     versionRange="${cloth_version_range}"
     ordering="AFTER"
     side="CLIENT"
+
+[[dependencies.${mod_id}]]
+   modId="create"
+   mandatory=false
+   versionRange="${create_version_range}"
+   ordering="AFTER"
+   side="BOTH"
