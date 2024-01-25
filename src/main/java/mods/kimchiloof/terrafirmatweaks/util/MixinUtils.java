@@ -28,7 +28,7 @@ public class MixinUtils {
     public static boolean isEarlyConfigEnabled(String mod_id, MixinUtils.Configs configKey) {
         String config = configKey.toString();
 
-        Path configPath = FMLPaths.GAMEDIR.get().resolve("config").resolve(TerraFirmaTweaks.COMMON_CONFIG_FILE_NAME);
+        Path configPath = FMLPaths.CONFIGDIR.get().resolve(TerraFirmaTweaks.COMMON_CONFIG_FILE_NAME);
         Toml configFile;
 
         try {
