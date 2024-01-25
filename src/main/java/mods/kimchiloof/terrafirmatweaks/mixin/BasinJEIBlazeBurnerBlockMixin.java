@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.compat.jei.category.animations.AnimatedBlazeBurner;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
-import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
+import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.minecraft.client.gui.GuiGraphics;
@@ -31,8 +31,8 @@ public abstract class BasinJEIBlazeBurnerBlockMixin extends AnimatedKinetics {
 
         int charcoalForgeHeatLevel;
         switch (heatLevel) {
-            case SEETHING -> charcoalForgeHeatLevel = TerraFirmaTweaks.CONFIG.create.seethingHeatLevel;
-            case KINDLED -> charcoalForgeHeatLevel = TerraFirmaTweaks.CONFIG.create.kindlingHeatLevel;
+            case SEETHING -> charcoalForgeHeatLevel = TweaksConfig.CREATE.seethingHeatLevel.get();
+            case KINDLED -> charcoalForgeHeatLevel = TweaksConfig.CREATE.kindlingHeatLevel.get();
             default -> charcoalForgeHeatLevel = 0;
         }
 

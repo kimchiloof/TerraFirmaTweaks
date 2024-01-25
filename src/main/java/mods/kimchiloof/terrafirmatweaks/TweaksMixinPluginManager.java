@@ -10,9 +10,9 @@ import java.util.Set;
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> MIXIN_CONFIGS = Map.of(
-//            "BasinHeatMixin", TerraFirmaTweaks.CONFIG.create.mixins.overrideBasinHeat,
-//            "BasinJEIBlazeBurnerBlockMixin", TerraFirmaTweaks.CONFIG.create.mixins.overrideJEIBlazeBurner,
-//            "BasinJEIBlazeBurnerItemsMixin", TerraFirmaTweaks.CONFIG.create.mixins.overrideJEIBlazeBurner
+//            "BasinHeatMixin", TweaksConfig.CREATE.MIXIN.overrideBasinHeat.get(),
+//            "BasinJEIBlazeBurnerBlockMixin", TweaksConfig.CREATE.MIXIN.overrideJEIBlazeBurner.get(),
+//            "BasinJEIBlazeBurnerItemsMixin", TweaksConfig.CREATE.MIXIN.overrideJEIBlazeBurner.get()
     );
 
     @Override

@@ -51,3 +51,10 @@ license="${mod_license}"
    versionRange="${create_version_range}"
    ordering="AFTER"
    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="cloth_config"
+    mandatory=false
+    versionRange="${cloth_version_range}"
+    ordering="AFTER"
+    side="CLIENT"

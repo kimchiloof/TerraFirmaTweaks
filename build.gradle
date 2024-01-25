@@ -28,8 +28,6 @@ idea {
     module { excludeDirs.add(file("run")) }
 }
 
-jarJar.enable()
-
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
@@ -152,6 +150,7 @@ processResources {
             forge_version_range: forge_version_range,
             tfc_version_range: tfc_version_range,
             create_version_range: create_version_range,
+            cloth_version_range: cloth_version_range,
 
             mod_id: mod_id,
             mod_name: mod_name,

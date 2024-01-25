@@ -5,7 +5,7 @@ import com.simibubi.create.content.processing.basin.BasinBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import com.simibubi.create.foundation.utility.BlockHelper;
-import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
+import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,13 +23,13 @@ public class BasinHeatMixin {
             int heat = state.getValue(TFCBlockStateProperties.HEAT_LEVEL);
 
             // Heat depending on the heat level of the forge
-            if (heat >= TerraFirmaTweaks.CONFIG.create.seethingHeatLevel) {
+            if (heat >= TweaksConfig.CREATE.seethingHeatLevel.get()) {
                 // Superheated
                 cir.setReturnValue(HeatLevel.SEETHING);
-            } else if (heat >= TerraFirmaTweaks.CONFIG.create.kindlingHeatLevel) {
+            } else if (heat >= TweaksConfig.CREATE.kindlingHeatLevel.get()) {
                 // Heated
                 cir.setReturnValue(HeatLevel.KINDLED);
-            } else if (heat >= TerraFirmaTweaks.CONFIG.create.smoulderingHeatLevel) {
+            } else if (heat >= TweaksConfig.CREATE.smoulderingHeatLevel.get()) {
                 // Passive
                 cir.setReturnValue(HeatLevel.SMOULDERING);
             } else {
