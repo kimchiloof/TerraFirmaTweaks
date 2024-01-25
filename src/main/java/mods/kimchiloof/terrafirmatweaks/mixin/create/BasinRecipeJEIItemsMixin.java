@@ -1,4 +1,4 @@
-package mods.kimchiloof.terrafirmatweaks.mixin;
+package mods.kimchiloof.terrafirmatweaks.mixin.create;
 
 import com.simibubi.create.compat.jei.category.BasinCategory;
 import com.simibubi.create.content.processing.basin.BasinRecipe;

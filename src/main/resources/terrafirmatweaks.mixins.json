@@ -6,9 +6,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "terrafirmatweaks.refmap.json",
   "mixins": [
-    "BasinHeatMixin",
-    "BasinRecipeJEIBlockMixin",
-    "BasinRecipeJEIItemsMixin"
+    "create.BasinHeatMixin",
+    "create.BasinRecipeJEIBlockMixin",
+    "create.BasinRecipeJEIItemsMixin"
   ],
   "client": [
   ],

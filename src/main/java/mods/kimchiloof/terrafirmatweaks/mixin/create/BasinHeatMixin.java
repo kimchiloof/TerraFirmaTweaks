@@ -1,4 +1,4 @@
-package mods.kimchiloof.terrafirmatweaks.mixin;
+package mods.kimchiloof.terrafirmatweaks.mixin.create;
 
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.processing.basin.BasinBlockEntity;

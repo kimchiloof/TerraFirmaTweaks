@@ -1,4 +1,4 @@
-package mods.kimchiloof.terrafirmatweaks.mixin;
+package mods.kimchiloof.terrafirmatweaks.mixin.create;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.compat.jei.category.animations.AnimatedBlazeBurner;
