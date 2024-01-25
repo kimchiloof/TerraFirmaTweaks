@@ -29,12 +29,11 @@ public abstract class BasinRecipeJEIBlockMixin extends AnimatedKinetics {
         matrixStack.mulPose(Axis.YP.rotationDegrees(22.5f));
         int scale = 23;
 
-        int charcoalForgeHeatLevel;
-        switch (heatLevel) {
-            case SEETHING -> charcoalForgeHeatLevel = TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get();
-            case KINDLED -> charcoalForgeHeatLevel = TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get();
-            default -> charcoalForgeHeatLevel = 0;
-        }
+        int charcoalForgeHeatLevel = switch (heatLevel) {
+            case SEETHING -> TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get();
+            case KINDLED -> TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get();
+            default -> 0;
+        };
 
         blockElement(
                 TFCBlocks.CHARCOAL_FORGE.get().defaultBlockState()
