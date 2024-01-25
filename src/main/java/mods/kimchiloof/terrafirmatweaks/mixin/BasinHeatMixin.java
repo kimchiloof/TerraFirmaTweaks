@@ -6,7 +6,6 @@ import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
-import mods.kimchiloof.terrafirmatweaks.util.EligibleIf;
 import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BasinBlockEntity.class)
-@EligibleIf(modLoaded = "create")
 public class BasinHeatMixin {
     @Inject(at = @At("HEAD"), method = "getHeatLevelOf", cancellable = true, remap = false)
     private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<HeatLevel> cir) {
