@@ -31,8 +31,8 @@ public abstract class BasinJEIBlazeBurnerBlockMixin extends AnimatedKinetics {
 
         int charcoalForgeHeatLevel;
         switch (heatLevel) {
-            case SEETHING -> charcoalForgeHeatLevel = TweaksConfig.CREATE.seethingHeatLevel.get();
-            case KINDLED -> charcoalForgeHeatLevel = TweaksConfig.CREATE.kindlingHeatLevel.get();
+            case SEETHING -> charcoalForgeHeatLevel = TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get();
+            case KINDLED -> charcoalForgeHeatLevel = TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get();
             default -> charcoalForgeHeatLevel = 0;
         }
 

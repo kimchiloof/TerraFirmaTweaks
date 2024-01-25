@@ -6,6 +6,7 @@ import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
+import mods.kimchiloof.terrafirmatweaks.util.EligibleIf;
 import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BasinBlockEntity.class)
+@EligibleIf(modLoaded = "create")
 public class BasinHeatMixin {
     @Inject(at = @At("HEAD"), method = "getHeatLevelOf", cancellable = true, remap = false)
     private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<HeatLevel> cir) {
@@ -23,13 +25,13 @@ public class BasinHeatMixin {
             int heat = state.getValue(TFCBlockStateProperties.HEAT_LEVEL);
 
             // Heat depending on the heat level of the forge
-            if (heat >= TweaksConfig.CREATE.seethingHeatLevel.get()) {
+            if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get()) {
                 // Superheated
                 cir.setReturnValue(HeatLevel.SEETHING);
-            } else if (heat >= TweaksConfig.CREATE.kindlingHeatLevel.get()) {
+            } else if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get()) {
                 // Heated
                 cir.setReturnValue(HeatLevel.KINDLED);
-            } else if (heat >= TweaksConfig.CREATE.smoulderingHeatLevel.get()) {
+            } else if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering.get()) {
                 // Passive
                 cir.setReturnValue(HeatLevel.SMOULDERING);
             } else {
