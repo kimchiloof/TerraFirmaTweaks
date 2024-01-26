@@ -5,10 +5,17 @@ import com.simibubi.create.content.processing.basin.BasinRecipe;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.TFCTags;
 import net.dries007.tfc.common.blocks.TFCBlocks;
+import net.dries007.tfc.common.capabilities.heat.Heat;
+import net.dries007.tfc.config.TFCConfig;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,6 +29,8 @@ import java.util.Objects;
 
 @Mixin(BasinCategory.class)
 public class BasinRecipeJEIItemsMixin {
+    // Add charcoal forge fuels to the recipe layout
+    // Add bellows to the recipe layout when superheated required
     @Inject(
             at = @At(
                     value = "FIELD",
@@ -55,4 +64,42 @@ public class BasinRecipeJEIItemsMixin {
         ci.cancel();
     }
 
+    // Replace "Heated" and "SuperHeated" with TFC heat levels
+    @Inject(
+            at = {@At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IIIZ)I"
+            )},
+            method = {"draw(Lcom/simibubi/create/content/processing/basin/BasinRecipe;Lmezz/jei/api/gui/ingredient/IRecipeSlotsView;Lnet/minecraft/client/gui/GuiGraphics;DD)V"},
+            cancellable = true
+    )
+    private void draw(BasinRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY, CallbackInfo ci) {
+        HeatCondition recipeHeat = recipe.getRequiredHeat();
+
+        if (recipeHeat != HeatCondition.NONE) {
+            // Max temp required is the minimum for brilliant white
+            float maxTemp = Heat.BRILLIANT_WHITE.getMin();
+
+            Heat requiredHeat = switch (recipeHeat) {
+                case HEATED -> Heat.getHeat(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get() * maxTemp / 7);
+                case SUPERHEATED -> Heat.getHeat(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get() * maxTemp / 7);
+                default -> null;
+            };
+
+            if (requiredHeat != null) {
+                MutableComponent requiredHeatText = (TFCConfig.CLIENT.heatTooltipStyle.get()).formatColored(requiredHeat.getMin());
+                if (requiredHeatText != null) {
+                    graphics.drawString(
+                            Minecraft.getInstance().font,
+                            requiredHeatText.getVisualOrderText(),
+                            9, 86,
+                            0xFFFFFF,
+                            false
+                    );
+                }
+            }
+
+            ci.cancel();
+        }
+    }
 }
