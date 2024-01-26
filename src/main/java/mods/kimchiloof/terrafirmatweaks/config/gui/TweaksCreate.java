@@ -28,7 +28,6 @@ public class TweaksCreate {
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinHeat::set)
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
                         .setTooltip(Component.literal("Allow Charcoal Forge to heat Create basins and Steam engines"))
-                        .setDefaultValue(false)
                         .build();
 
         mixinOverrideJEIBlazeBurner =
@@ -40,7 +39,6 @@ public class TweaksCreate {
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner::set)
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
                         .setTooltip(Component.literal("Override JEI animation of the blaze burner to be a charcoal forge instead"))
-                        .setDefaultValue(false)
                         .build();
 
         createMixinsCategoryBuilder.add(mixinOverrideBasinHeat);
@@ -62,7 +60,6 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething::set)
-                        .setDefaultValue(7)
                         .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered seething (super-heating)"))
                         .build()
@@ -77,7 +74,6 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling::set)
-                        .setDefaultValue(3)
                         .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered kindling (heating)"))
                         .build()
@@ -92,7 +88,6 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering::set)
-                        .setDefaultValue(1)
                         .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered smouldering (passively heating)"))
                         .build()

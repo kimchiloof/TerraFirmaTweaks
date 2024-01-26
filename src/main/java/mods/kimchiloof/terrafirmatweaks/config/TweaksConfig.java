@@ -42,7 +42,7 @@ public class TweaksConfig {
 
                 kindling = BUILDER
                         .comment("The min heat level at which a charcoal forge is considered kindling (heating)")
-                        .defineInRange("kindling", 3, 0, 7);
+                        .defineInRange("kindling", 5, 0, 7);
 
                 smouldering = BUILDER
                         .comment("The min heat level at which a charcoal forge is considered smouldering (passively heating)")
