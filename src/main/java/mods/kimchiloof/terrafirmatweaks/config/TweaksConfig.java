@@ -13,42 +13,42 @@ public class TweaksConfig {
     // Config Categories
     public static class Create {
         public static class Mixin {
-            Mixin(Builder BUILDER) {
-                BUILDER.push("mixin");
+            Mixin(Builder builder) {
+                builder.push("mixin");
 
-                overrideBasinHeat = BUILDER
+                overrideBasinHeat = builder
                         .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
                         .worldRestart()
                         .define(MixinUtils.Configs.BasinHeatMixin.toString(), true);
 
-                overrideBasinJEIBlazeBurner = BUILDER
+                overrideBasinJEIBlazeBurner = builder
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
                         .define(MixinUtils.Configs.BasinRecipeJEIMixins.toString(), true);
 
-                BUILDER.pop();
+                builder.pop();
             }
             public final BooleanValue overrideBasinHeat;
             public final BooleanValue overrideBasinJEIBlazeBurner;
         }
 
         public static class BasinHeat {
-            BasinHeat(Builder BUILDER) {
-                BUILDER.push("basinHeat");
+            BasinHeat(Builder builder) {
+                builder.push("basinHeat");
 
-                seething = BUILDER
+                seething = builder
                         .comment("The min heat level at which a charcoal forge is considered seething (super-heating)")
                         .defineInRange("seething", 7, 0, 7);
 
-                kindling = BUILDER
+                kindling = builder
                         .comment("The min heat level at which a charcoal forge is considered kindling (heating)")
                         .defineInRange("kindling", 5, 0, 7);
 
-                smouldering = BUILDER
+                smouldering = builder
                         .comment("The min heat level at which a charcoal forge is considered smouldering (passively heating)")
                         .defineInRange("smouldering", 1, 0, 7);
 
-                BUILDER.pop();
+                builder.pop();
             }
             public final IntValue seething;
             public final IntValue kindling;
@@ -60,13 +60,13 @@ public class TweaksConfig {
         public final BasinHeat BASIN_HEAT_LEVEL;
 
         // Create Configs
-        Create(Builder BUILDER) {
-            BUILDER.push("create");
+        Create(Builder builder) {
+            builder.push("create");
 
-            MIXIN = new Mixin(BUILDER);
-            BASIN_HEAT_LEVEL = new BasinHeat(BUILDER);
+            MIXIN = new Mixin(builder);
+            BASIN_HEAT_LEVEL = new BasinHeat(builder);
 
-            BUILDER.pop();
+            builder.pop();
         }
     }
 
