@@ -60,7 +60,10 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething::set)
-                        .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
+                        .setRequirement(Requirement.all(
+                                Requirement.isTrue(mixinOverrideBasinHeat),
+                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
+                        ))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered seething (super-heating)"))
                         .build()
         );
@@ -74,7 +77,10 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling::set)
-                        .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
+                        .setRequirement(Requirement.all(
+                                Requirement.isTrue(mixinOverrideBasinHeat),
+                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
+                        ))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered kindling (heating)"))
                         .build()
         );
@@ -88,7 +94,10 @@ public class TweaksCreate {
                                 7
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering::set)
-                        .setRequirement(Requirement.isTrue(mixinOverrideBasinHeat))
+                        .setRequirement(Requirement.all(
+                                Requirement.isTrue(mixinOverrideBasinHeat),
+                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
+                        ))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered smouldering (passively heating)"))
                         .build()
         );
