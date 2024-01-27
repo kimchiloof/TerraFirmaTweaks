@@ -34,8 +34,6 @@ public class BasinMaxFluidInputMixin {
                 TweaksConfig.CREATE.basinMaxFluidInput.get(),
                 1000,
                 true
-        )).whenFluidUpdates(() -> {
-            this.contentsChanged = true;
-        });
+        )).whenFluidUpdates(() -> this.contentsChanged = true);
     }
 }
