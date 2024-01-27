@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/kimchiloof/TerraFirmaTweaks"><img src="https://img.shields.io/github/last-commit/kimchiloof/TerraFirmaTweaks" alt="Repo"></a>
-    <a href="https://github.com/kimchiloof/TerraFirmaTweaks/blob/master/LICENSE"><img src="https://img.shields.io/github/license/kimchiloof/TerraFirmaTweaks" alt="License"></a>
+    <a href="https://github.com/kimchiloof/TerraFirmaTweaks/blob/main/LICENSE"><img src="https://img.shields.io/github/license/kimchiloof/TerraFirmaTweaks" alt="License"></a>
     <a href="https://github.com/kimchiloof/TerraFirmaTweaks/issues"><img src="https://img.shields.io/github/issues/kimchiloof/TerraFirmaTweaks" alt="Issues"></a>
 </p>
 
