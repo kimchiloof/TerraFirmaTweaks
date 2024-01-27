@@ -1,6 +1,7 @@
-package mods.kimchiloof.terrafirmatweaks.data;
+package mods.kimchiloof.terrafirmatweaks.datagen;
 
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
+import mods.kimchiloof.terrafirmatweaks.datagen.recipes.create.BasinAlloyRecipeGenerator;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -21,5 +22,6 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new TweaksBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new BasinAlloyRecipeGenerator(packOutput));
     }
 }

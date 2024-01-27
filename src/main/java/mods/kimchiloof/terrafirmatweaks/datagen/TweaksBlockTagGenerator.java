@@ -1,4 +1,4 @@
-package mods.kimchiloof.terrafirmatweaks.data;
+package mods.kimchiloof.terrafirmatweaks.datagen;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllTags;
