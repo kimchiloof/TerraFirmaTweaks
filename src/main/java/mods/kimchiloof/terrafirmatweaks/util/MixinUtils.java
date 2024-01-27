@@ -15,6 +15,7 @@ public class MixinUtils {
      */
     public enum Mixins {
         BasinHeatMixin,
+        BasinRecipeCoreMixin,
         BasinRecipeJEIBlockMixin,
         BasinRecipeJEIItemsMixin
     }

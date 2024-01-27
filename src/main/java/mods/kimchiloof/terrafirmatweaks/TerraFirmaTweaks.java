@@ -3,6 +3,7 @@ package mods.kimchiloof.terrafirmatweaks;
 import com.mojang.logging.LogUtils;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfigGUI;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
@@ -36,5 +37,9 @@ public class TerraFirmaTweaks {
         if (ModList.get().isLoaded("cloth_config")) {
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> TweaksConfigGUI::registerConfigGUI);
         }
+    }
+
+    public static ResourceLocation newRes(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 }

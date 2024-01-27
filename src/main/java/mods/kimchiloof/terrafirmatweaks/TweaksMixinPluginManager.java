@@ -17,6 +17,8 @@ public class TweaksMixinPluginManager implements IMixinConfigPlugin {
             MixinUtils.Mixins.BasinHeatMixin.toString(),
                     isEarlyConfigEnabled("create", MixinUtils.Configs.BasinHeatMixin)
                     && isEarlyModLoaded("create"),
+            MixinUtils.Mixins.BasinRecipeCoreMixin.toString(),
+                    isEarlyModLoaded("create"),
             MixinUtils.Mixins.BasinRecipeJEIBlockMixin.toString(),
                     isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
                     && isEarlyModLoaded("create"),

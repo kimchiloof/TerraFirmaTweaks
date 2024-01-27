@@ -7,6 +7,7 @@
   "refmap": "terrafirmatweaks.refmap.json",
   "mixins": [
     "create.BasinHeatMixin",
+    "create.BasinRecipeCoreMixin",
     "create.BasinRecipeJEIBlockMixin",
     "create.BasinRecipeJEIItemsMixin"
   ],
