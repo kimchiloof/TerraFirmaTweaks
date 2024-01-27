@@ -7,6 +7,7 @@ import me.shedaniel.clothconfig2.gui.entries.SubCategoryListEntry;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.util.ConfigUtils;
+import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.minecraft.network.chat.Component;
 
 @SuppressWarnings("UnstableApiUsage")
@@ -28,6 +29,7 @@ public class TweaksCreate {
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinHeat::set)
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
                         .setTooltip(Component.literal("Allow Charcoal Forge to heat Create basins and Steam engines"))
+                        .requireRestart()
                         .build();
 
         mixinOverrideJEIBlazeBurner =
@@ -39,6 +41,7 @@ public class TweaksCreate {
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner::set)
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
                         .setTooltip(Component.literal("Override JEI animation of the blaze burner to be a charcoal forge instead"))
+                        .requireRestart()
                         .build();
 
         createMixinsCategoryBuilder.add(mixinOverrideBasinHeat);
@@ -48,56 +51,48 @@ public class TweaksCreate {
     }
 
     public static SubCategoryListEntry BasinHeats(ConfigEntryBuilder ENTRY_BUILDER) {
-        SubCategoryBuilder basinHeatCategoryBuilder = ENTRY_BUILDER.startSubCategory(Component.literal("Basin Heat Override"))
-                        .setTooltip(Component.literal("Requires \"Use Basin Heat Override\" to be enabled"));
-
-        basinHeatCategoryBuilder.add(
-                ENTRY_BUILDER
-                        .startIntSlider(
-                                Component.literal("Seething Heat Level"),
-                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get(),
-                                0,
-                                7
-                        )
-                        .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething::set)
+        SubCategoryBuilder basinHeatCategoryBuilder = ENTRY_BUILDER.startSubCategory(Component.literal("Basin Heat Override Options"))
+                        .setTooltip(Component.literal("Requires \"Use Basin Heat Override\" to be enabled"))
                         .setRequirement(Requirement.all(
                                 Requirement.isTrue(mixinOverrideBasinHeat),
                                 Requirement.isTrue(ConfigUtils.isModLoaded("create"))
-                        ))
+                        ));
+
+        basinHeatCategoryBuilder.add(
+                ENTRY_BUILDER
+                        .startEnumSelector(
+                                Component.literal("Seething Heat Level"),
+                                Heat.class,
+                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get()
+                        )
+                        .setDefaultValue(Heat.BRILLIANT_WHITE)
+                        .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething::set)
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered seething (super-heating)"))
                         .build()
         );
 
         basinHeatCategoryBuilder.add(
                 ENTRY_BUILDER
-                        .startIntSlider(
+                        .startEnumSelector(
                                 Component.literal("Kindling Heat Level"),
-                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get(),
-                                0,
-                                7
+                                Heat.class,
+                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get()
                         )
+                        .setDefaultValue(Heat.ORANGE)
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling::set)
-                        .setRequirement(Requirement.all(
-                                Requirement.isTrue(mixinOverrideBasinHeat),
-                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
-                        ))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered kindling (heating)"))
                         .build()
         );
 
         basinHeatCategoryBuilder.add(
                 ENTRY_BUILDER
-                        .startIntSlider(
+                        .startEnumSelector(
                                 Component.literal("Smouldering Heat Level"),
-                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering.get(),
-                                0,
-                                7
+                                Heat.class,
+                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering.get()
                         )
+                        .setDefaultValue(Heat.FAINT_RED)
                         .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering::set)
-                        .setRequirement(Requirement.all(
-                                Requirement.isTrue(mixinOverrideBasinHeat),
-                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
-                        ))
                         .setTooltip(Component.literal("The min heat level at which a charcoal forge is considered smouldering (passively heating)"))
                         .build()
         );

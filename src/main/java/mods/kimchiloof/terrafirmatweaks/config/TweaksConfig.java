@@ -2,6 +2,7 @@ package mods.kimchiloof.terrafirmatweaks.config;
 
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import mods.kimchiloof.terrafirmatweaks.util.MixinUtils;
+import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
 import net.minecraftforge.fml.common.Mod;
@@ -38,21 +39,21 @@ public class TweaksConfig {
 
                 seething = builder
                         .comment("The min heat level at which a charcoal forge is considered seething (super-heating)")
-                        .defineInRange("seething", 7, 0, 7);
+                        .defineEnum("seething", Heat.BRILLIANT_WHITE);
 
                 kindling = builder
                         .comment("The min heat level at which a charcoal forge is considered kindling (heating)")
-                        .defineInRange("kindling", 5, 0, 7);
+                        .defineEnum("kindling", Heat.ORANGE);
 
                 smouldering = builder
                         .comment("The min heat level at which a charcoal forge is considered smouldering (passively heating)")
-                        .defineInRange("smouldering", 1, 0, 7);
+                        .defineEnum("smouldering", Heat.FAINT_RED);
 
                 builder.pop();
             }
-            public final IntValue seething;
-            public final IntValue kindling;
-            public final IntValue smouldering;
+            public final EnumValue<Heat> seething;
+            public final EnumValue<Heat> kindling;
+            public final EnumValue<Heat> smouldering;
         }
 
         // Create Categories

@@ -5,6 +5,7 @@ import com.simibubi.create.content.processing.basin.BasinBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import com.simibubi.create.foundation.utility.BlockHelper;
+import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.devices.CharcoalForgeBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,17 +19,21 @@ public class BasinHeatMixin {
     @Inject(at = @At("HEAD"), method = "getHeatLevelOf", cancellable = true, remap = false)
     private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<HeatLevel> cir) {
         if (state.hasProperty(CharcoalForgeBlock.HEAT)) {
-            // Charcoal forge heat
-            int heat = state.getValue(CharcoalForgeBlock.HEAT);
+            // Charcoal forge heat (0-7)
+            int charcoalForgeHeatLevel = state.getValue(CharcoalForgeBlock.HEAT);
+
+            int seethingReq = Math.round(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get().ordinal() / 10.0f * 7);
+            int kindlingReq = Math.round(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get().ordinal() / 10.0f * 7);
+            int smoulderingReq = Math.round(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering.get().ordinal() / 10.0f * 7);
 
             // Heat depending on the heat level of the forge
-            if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get()) {
+            if (charcoalForgeHeatLevel >= seethingReq) {
                 // Superheated
                 cir.setReturnValue(HeatLevel.SEETHING);
-            } else if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get()) {
+            } else if (charcoalForgeHeatLevel >= kindlingReq) {
                 // Heated
                 cir.setReturnValue(HeatLevel.KINDLED);
-            } else if (heat >= TweaksConfig.CREATE.BASIN_HEAT_LEVEL.smouldering.get()) {
+            } else if (charcoalForgeHeatLevel >= smoulderingReq) {
                 // Passive
                 cir.setReturnValue(HeatLevel.SMOULDERING);
             } else {

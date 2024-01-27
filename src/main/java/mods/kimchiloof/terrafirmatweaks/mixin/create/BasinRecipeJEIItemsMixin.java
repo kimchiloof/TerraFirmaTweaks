@@ -77,12 +77,9 @@ public class BasinRecipeJEIItemsMixin {
         HeatCondition recipeHeat = recipe.getRequiredHeat();
 
         if (recipeHeat != HeatCondition.NONE) {
-            // Max temp required is the minimum for brilliant white
-            float maxTemp = Heat.BRILLIANT_WHITE.getMin();
-
             Heat requiredHeat = switch (recipeHeat) {
-                case HEATED -> Heat.getHeat(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get() * maxTemp / 7);
-                case SUPERHEATED -> Heat.getHeat(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get() * maxTemp / 7);
+                case HEATED -> TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get();
+                case SUPERHEATED -> TweaksConfig.CREATE.BASIN_HEAT_LEVEL.seething.get();
                 default -> null;
             };
 
