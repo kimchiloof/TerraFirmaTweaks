@@ -43,3 +43,7 @@ cd TerraFirmaTweaks
 ## Credits
 
 Some mixin code thanks to Serious Creeper's [TFC Tweaks (MIT)](https://www.curseforge.com/minecraft/mc-mods/tfc-tweaks-1-18-2) and [TFC Create (MIT)](https://www.curseforge.com/minecraft/mc-mods/tfc-create), Chauve Dev's [Wooden Cog (MIT)](https://www.curseforge.com/minecraft/mc-mods/wooden-cog)
+
+## License
+
+This mod is released under the [GPL-3.0](https://github.com/kimchiloof/TerraFirmaTweaks/blob/main/LICENSE) license. However, "larger works" (i.e., modpacks) may reference this mod under the [LGPL-3.0](https://github.com/kimchiloof/TerraFirmaTweaks/blob/main/LICENSE.LESSER) license (i.e., modpacks including this mod (and do not include its source code) do not have to be licensed under GPL-3.0 or LGPL-3.0)
