@@ -1,0 +1,32 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 15,
+      "fluid": "tfc:metal/sterling_silver",
+      "nbt": {}
+    },
+    {
+      "amount": 20,
+      "fluid": "tfc:metal/steel",
+      "nbt": {}
+    },
+    {
+      "amount": 15,
+      "fluid": "tfc:metal/bismuth_bronze",
+      "nbt": {}
+    },
+    {
+      "amount": 50,
+      "fluid": "tfc:metal/black_steel",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 100,
+      "fluid": "tfc:metal/weak_blue_steel"
+    }
+  ]
+}

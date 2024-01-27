@@ -1,0 +1,32 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 20,
+      "fluid": "tfc:metal/steel",
+      "nbt": {}
+    },
+    {
+      "amount": 15,
+      "fluid": "tfc:metal/brass",
+      "nbt": {}
+    },
+    {
+      "amount": 15,
+      "fluid": "tfc:metal/rose_gold",
+      "nbt": {}
+    },
+    {
+      "amount": 50,
+      "fluid": "tfc:metal/black_steel",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 100,
+      "fluid": "tfc:metal/weak_red_steel"
+    }
+  ]
+}

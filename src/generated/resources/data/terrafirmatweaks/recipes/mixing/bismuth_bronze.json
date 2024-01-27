@@ -1,0 +1,27 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 60,
+      "fluid": "tfc:metal/copper",
+      "nbt": {}
+    },
+    {
+      "amount": 25,
+      "fluid": "tfc:metal/zinc",
+      "nbt": {}
+    },
+    {
+      "amount": 15,
+      "fluid": "tfc:metal/bismuth",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 100,
+      "fluid": "tfc:metal/bismuth_bronze"
+    }
+  ]
+}

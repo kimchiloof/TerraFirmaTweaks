@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 30,
+      "fluid": "tfc:metal/copper",
+      "nbt": {}
+    },
+    {
+      "amount": 70,
+      "fluid": "tfc:metal/silver",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 100,
+      "fluid": "tfc:metal/sterling_silver"
+    }
+  ]
+}
