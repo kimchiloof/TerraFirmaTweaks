@@ -39,15 +39,15 @@ public class TweaksConfig {
 
                 seething = builder
                         .comment("The min heat level at which a charcoal forge is considered seething (super-heating)")
-                        .defineEnum("seething", Heat.BRILLIANT_WHITE);
+                        .defineEnum("seethingBasinHeat", Heat.BRILLIANT_WHITE);
 
                 kindling = builder
                         .comment("The min heat level at which a charcoal forge is considered kindling (heating)")
-                        .defineEnum("kindling", Heat.ORANGE);
+                        .defineEnum("kindlingBasinHeat", Heat.ORANGE);
 
                 smouldering = builder
                         .comment("The min heat level at which a charcoal forge is considered smouldering (passively heating)")
-                        .defineEnum("smouldering", Heat.FAINT_RED);
+                        .defineEnum("smoulderingBasinHeat", Heat.FAINT_RED);
 
                 builder.pop();
             }
@@ -55,6 +55,8 @@ public class TweaksConfig {
             public final EnumValue<Heat> kindling;
             public final EnumValue<Heat> smouldering;
         }
+
+        public final IntValue basinMaxFluidInput;
 
         // Create Categories
         public final Mixin MIXIN;
@@ -66,6 +68,10 @@ public class TweaksConfig {
 
             MIXIN = new Mixin(builder);
             BASIN_HEAT_LEVEL = new BasinHeat(builder);
+
+            basinMaxFluidInput = builder
+                    .comment("The max number of fluids that can be input into a basin at once")
+                    .defineInRange("basinMaxFluidInput", 4, 4, Integer.MAX_VALUE);
 
             builder.pop();
         }

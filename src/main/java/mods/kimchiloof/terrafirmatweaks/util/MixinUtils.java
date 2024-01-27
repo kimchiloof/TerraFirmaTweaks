@@ -15,6 +15,7 @@ public class MixinUtils {
      */
     public enum Mixins {
         BasinHeatMixin,
+        BasinMaxFluidInputMixin,
         BasinRecipeCoreMixin,
         BasinRecipeJEIBlockMixin,
         BasinRecipeJEIItemsMixin
@@ -52,6 +53,21 @@ public class MixinUtils {
             return mixinEnabled;
         }
     }
+
+    public static boolean isEarlyConfigPresent() {
+        Path configPath = FMLPaths.CONFIGDIR.get().resolve(TerraFirmaTweaks.COMMON_CONFIG_FILE_NAME);
+
+        if (Files.notExists(configPath)) {
+            if (!shownMissingConfigWarning) {
+                TerraFirmaTweaks.LOGGER.warn("TerraFirmaTweaks config file not found, disabling mixins");
+                shownMissingConfigWarning = true;
+            }
+            return false;
+        }
+
+        return true;
+    }
+
     public static boolean isEarlyModLoaded(String mod_id) {
         return FMLLoader.getLoadingModList().getModFileById(mod_id) != null;
     }

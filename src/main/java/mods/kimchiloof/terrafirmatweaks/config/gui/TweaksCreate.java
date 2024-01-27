@@ -3,6 +3,7 @@ package mods.kimchiloof.terrafirmatweaks.config.gui;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.api.Requirement;
 import me.shedaniel.clothconfig2.gui.entries.BooleanListEntry;
+import me.shedaniel.clothconfig2.gui.entries.IntegerListEntry;
 import me.shedaniel.clothconfig2.gui.entries.SubCategoryListEntry;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
@@ -12,6 +13,7 @@ import net.minecraft.network.chat.Component;
 
 @SuppressWarnings("UnstableApiUsage")
 public class TweaksCreate {
+    // Mixin Configs
     private static BooleanListEntry mixinOverrideBasinHeat;
     private static BooleanListEntry mixinOverrideJEIBlazeBurner;
 
@@ -100,5 +102,15 @@ public class TweaksCreate {
         return basinHeatCategoryBuilder.build();
     }
 
-
+    public static IntegerListEntry BasinMaxFluidInput(ConfigEntryBuilder ENTRY_BUILDER) {
+        return ENTRY_BUILDER
+                .startIntField(
+                        Component.literal("Basin Max Fluid Input"),
+                        TweaksConfig.CREATE.basinMaxFluidInput.get()
+                )
+                .setMin(4)
+                .setSaveConsumer(TweaksConfig.CREATE.basinMaxFluidInput::set)
+                .setTooltip(Component.literal("The max numbers of fluids that can be input into a basin at once"))
+                .build();
+    }
 }

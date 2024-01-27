@@ -9,26 +9,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static mods.kimchiloof.terrafirmatweaks.util.MixinUtils.isEarlyConfigEnabled;
-import static mods.kimchiloof.terrafirmatweaks.util.MixinUtils.isEarlyModLoaded;
+import static mods.kimchiloof.terrafirmatweaks.util.MixinUtils.*;
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
             MixinUtils.Mixins.BasinHeatMixin.toString(),
-                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinHeatMixin)
-                    && isEarlyModLoaded("create"),
+                    isEarlyModLoaded("create")
+                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinHeatMixin),
+            MixinUtils.Mixins.BasinMaxFluidInputMixin.toString(),
+                    isEarlyModLoaded("create"),
             MixinUtils.Mixins.BasinRecipeCoreMixin.toString(),
                     isEarlyModLoaded("create"),
             MixinUtils.Mixins.BasinRecipeJEIBlockMixin.toString(),
-                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
-                    && isEarlyModLoaded("create"),
+                    isEarlyModLoaded("create")
+                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins),
             MixinUtils.Mixins.BasinRecipeJEIItemsMixin.toString(),
-                    isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
-                    && isEarlyModLoaded("create")
+                    isEarlyModLoaded("create")
+                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
     );
 
     @Override
     public boolean shouldApplyMixin(String targetClassPathName, String mixinClassPathName) {
+        if (!isEarlyConfigPresent()) return false;
+
         String mixinName = mixinClassPathName.substring(mixinClassPathName.lastIndexOf('.') + 1);
 
         boolean isApplied = mixinApplyMap.getOrDefault(mixinName, false);
