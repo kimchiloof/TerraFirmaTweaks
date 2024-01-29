@@ -1,6 +1,12 @@
 {
   "values": [
-    "create:basin",
-    "create:fluid_tank"
+    {
+      "id": "create:basin",
+      "required": false
+    },
+    {
+      "id": "create:fluid_tank",
+      "required": false
+    }
   ]
 }

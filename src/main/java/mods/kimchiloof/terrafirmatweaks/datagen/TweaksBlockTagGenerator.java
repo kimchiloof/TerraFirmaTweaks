@@ -31,9 +31,7 @@ public class TweaksBlockTagGenerator extends BlockTagsProvider {
      */
     private void addPassiveBoilerTags() {
         this.tag(AllTags.AllBlockTags.PASSIVE_BOILER_HEATERS.tag)
-                .add(
-                        TFCBlocks.FIREPIT.get()
-                );
+                .add(TFCBlocks.FIREPIT.get());
 
         TFCBlocks.MAGMA_BLOCKS.forEach((rock, blockRegistryObject) ->
                 this.tag(AllTags.AllBlockTags.PASSIVE_BOILER_HEATERS.tag)
@@ -46,9 +44,7 @@ public class TweaksBlockTagGenerator extends BlockTagsProvider {
      */
     private void addInvisibleBlockTags() {
         this.tag(TFCTags.Blocks.FORGE_INVISIBLE_WHITELIST)
-                .add(
-                        AllBlocks.BASIN.get(),
-                        AllBlocks.FLUID_TANK.get()
-                );
+                .addOptional(AllBlocks.BASIN.getId())
+                .addOptional(AllBlocks.FLUID_TANK.getId());
     }
 }
