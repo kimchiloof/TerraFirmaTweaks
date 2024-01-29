@@ -10,13 +10,13 @@
   "heatRequirement": "heated",
   "ingredients": [
     {
-      "amount": 90,
-      "fluid": "tfc:metal/copper",
+      "amount": 10,
+      "fluid": "tfc:metal/zinc",
       "nbt": {}
     },
     {
-      "amount": 10,
-      "fluid": "tfc:metal/zinc",
+      "amount": 90,
+      "fluid": "tfc:metal/copper",
       "nbt": {}
     }
   ],

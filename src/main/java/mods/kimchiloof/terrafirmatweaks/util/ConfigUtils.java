@@ -23,11 +23,13 @@ public class ConfigUtils {
 
     // Config enabled
     public static boolean isRecipeConfigEnabled(String mod_id, RecipeEnums.Configs configKey) {
-        return getConfigBooleanValue(mod_id, configKey.toString());
+        return ModList.get().isLoaded(mod_id)
+                && getConfigBooleanValue(mod_id, configKey.toString());
     }
 
     public static boolean isMixinConfigEnabled(String mod_id, MixinEnums.Configs configKey) {
-        return ConfigUtils.getConfigBooleanValue(mod_id, "mixin." + configKey.toString());
+        return isModLoadedEarly(mod_id)
+                && getConfigBooleanValue(mod_id, "mixin." + configKey.toString());
     }
 
     // Util config enabled

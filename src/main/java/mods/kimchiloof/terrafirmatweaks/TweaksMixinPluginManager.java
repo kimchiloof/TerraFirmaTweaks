@@ -16,18 +16,15 @@ import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isModLoadedEarly
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
             MixinEnums.Mixins.BasinHeatMixin.toString(),
-                    isModLoadedEarly("create")
-                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinHeatMixin),
+                    isMixinConfigEnabled("create", MixinEnums.Configs.BasinHeatMixin),
             MixinEnums.Mixins.BasinMaxFluidInputMixin.toString(),
                     isModLoadedEarly("create"),
             MixinEnums.Mixins.BasinRecipeCoreMixin.toString(),
                     isModLoadedEarly("create"),
             MixinEnums.Mixins.BasinRecipeJEIBlockMixin.toString(),
-                    isModLoadedEarly("create")
-                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins),
+                    isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins),
             MixinEnums.Mixins.BasinRecipeJEIItemsMixin.toString(),
-                    isModLoadedEarly("create")
-                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins)
+                    isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins)
     );
 
     @Override
