@@ -1,7 +1,6 @@
 package mods.kimchiloof.terrafirmatweaks;
 
 import mods.kimchiloof.terrafirmatweaks.util.MixinEnums;
-import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -10,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.*;
+import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isConfigPresent;
+import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isMixinConfigEnabled;
+import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isModLoadedEarly;
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
