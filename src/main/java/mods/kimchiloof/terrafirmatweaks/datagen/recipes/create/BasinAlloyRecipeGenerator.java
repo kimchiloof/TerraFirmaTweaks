@@ -5,7 +5,6 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.foundation.data.recipe.ProcessingRecipeGen;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
-import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
 import mods.kimchiloof.terrafirmatweaks.util.constants.AlloyConstants;
 import mods.kimchiloof.terrafirmatweaks.util.objects.Alloy;

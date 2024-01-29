@@ -2,7 +2,6 @@ package mods.kimchiloof.terrafirmatweaks.util.constants;
 
 import mods.kimchiloof.terrafirmatweaks.util.objects.Alloy;
 import mods.kimchiloof.terrafirmatweaks.util.objects.PairDef;
-import net.dries007.tfc.util.Metal;
 import net.dries007.tfc.util.Metal.Default;
 
 import java.util.List;
