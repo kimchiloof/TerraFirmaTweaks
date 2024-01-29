@@ -5,10 +5,12 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.foundation.data.recipe.ProcessingRecipeGen;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
+import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
 import mods.kimchiloof.terrafirmatweaks.util.constants.AlloyConstants;
 import mods.kimchiloof.terrafirmatweaks.util.objects.Alloy;
 import mods.kimchiloof.terrafirmatweaks.util.recipes.RecipeConfigEnabledCondition;
+import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.dries007.tfc.common.fluids.TFCFluids;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.data.PackOutput;
@@ -55,7 +57,13 @@ public class BasinAlloyRecipeGenerator extends ProcessingRecipeGen {
                                             100
                                     );
 
-                                    processingRecipeBuilder.requiresHeat(HeatCondition.HEATED);
+                                    processingRecipeBuilder.requiresHeat(
+                                            // Not configurable - based on defaults
+                                            // Will scale based on selected SUPERHEATED config value
+                                            alloy.getMeltTemp() >= Heat.BRILLIANT_WHITE.getMin()
+                                                    ? HeatCondition.SUPERHEATED
+                                                    : HeatCondition.HEATED
+                                    );
                                     processingRecipeBuilder.withCondition(
                                             new RecipeConfigEnabledCondition("create", RecipeEnums.Configs.CreateBasinAlloyRecipes)
                                     );

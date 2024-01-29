@@ -7,7 +7,7 @@
       "mod_id": "create"
     }
   ],
-  "heatRequirement": "heated",
+  "heatRequirement": "superheated",
   "ingredients": [
     {
       "amount": 15,
