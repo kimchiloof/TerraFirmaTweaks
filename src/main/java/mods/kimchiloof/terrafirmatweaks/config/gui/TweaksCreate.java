@@ -110,6 +110,7 @@ public class TweaksCreate {
                 )
                 .setMin(4)
                 .setSaveConsumer(TweaksConfig.CREATE.basinMaxFluidInput::set)
+                .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                 .setTooltip(Component.literal("The max numbers of fluids that can be input into a basin at once"))
                 .build();
     }
@@ -121,6 +122,7 @@ public class TweaksCreate {
                         TweaksConfig.CREATE.basinAlloyRecipes.get()
                 )
                 .setSaveConsumer(TweaksConfig.CREATE.basinAlloyRecipes::set)
+                .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                 .setTooltip(Component.literal("Whether to add alloy recipes to the basin"))
                 .build();
     }
