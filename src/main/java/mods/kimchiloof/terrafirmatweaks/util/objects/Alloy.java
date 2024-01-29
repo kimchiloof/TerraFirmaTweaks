@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Alloy {
     private final String alloy;
-    private final Map<String, PairF> elements;
+    private final Map<String, PairDef> elements;
 
-    public Alloy(String alloy, Map<String, PairF> elements) {
+    public Alloy(String alloy, Map<String, PairDef> elements) {
         this.alloy = alloy;
         this.elements = new HashMap<>(elements);
     }
@@ -16,7 +16,7 @@ public class Alloy {
         return alloy;
     }
 
-    public Map<String, PairF> getElements() {
+    public Map<String, PairDef> getElements() {
         return elements;
     }
 }
