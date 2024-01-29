@@ -29,7 +29,7 @@ public class TweaksCreate {
                                 TweaksConfig.CREATE.MIXIN.overrideBasinHeat.get()
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinHeat::set)
-                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
+                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                         .setTooltip(Component.literal("Allow Charcoal Forge to heat Create basins and Steam engines"))
                         .requireRestart()
                         .build();
@@ -41,7 +41,7 @@ public class TweaksCreate {
                                 TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner.get()
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner::set)
-                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoaded("create")))
+                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                         .setTooltip(Component.literal("Override JEI animation of the blaze burner to be a charcoal forge instead"))
                         .requireRestart()
                         .build();
@@ -57,7 +57,7 @@ public class TweaksCreate {
                         .setTooltip(Component.literal("Requires \"Use Basin Heat Override\" to be enabled"))
                         .setRequirement(Requirement.all(
                                 Requirement.isTrue(mixinOverrideBasinHeat),
-                                Requirement.isTrue(ConfigUtils.isModLoaded("create"))
+                                Requirement.isTrue(ConfigUtils.isModLoadedConfig("create"))
                         ));
 
         basinHeatCategoryBuilder.add(
@@ -111,6 +111,17 @@ public class TweaksCreate {
                 .setMin(4)
                 .setSaveConsumer(TweaksConfig.CREATE.basinMaxFluidInput::set)
                 .setTooltip(Component.literal("The max numbers of fluids that can be input into a basin at once"))
+                .build();
+    }
+
+    public static BooleanListEntry BasinAlloyRecipes(ConfigEntryBuilder ENTRY_BUILDER) {
+        return ENTRY_BUILDER
+                .startBooleanToggle(
+                        Component.literal("Basin Alloy Recipes"),
+                        TweaksConfig.CREATE.basinAlloyRecipes.get()
+                )
+                .setSaveConsumer(TweaksConfig.CREATE.basinAlloyRecipes::set)
+                .setTooltip(Component.literal("Whether to add alloy recipes to the basin"))
                 .build();
     }
 }

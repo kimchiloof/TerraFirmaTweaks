@@ -1,6 +1,7 @@
 package mods.kimchiloof.terrafirmatweaks;
 
-import mods.kimchiloof.terrafirmatweaks.util.MixinUtils;
+import mods.kimchiloof.terrafirmatweaks.util.MixinEnums;
+import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -9,28 +10,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static mods.kimchiloof.terrafirmatweaks.util.MixinUtils.*;
+import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.*;
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
-            MixinUtils.Mixins.BasinHeatMixin.toString(),
-                    isEarlyModLoaded("create")
-                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinHeatMixin),
-            MixinUtils.Mixins.BasinMaxFluidInputMixin.toString(),
-                    isEarlyModLoaded("create"),
-            MixinUtils.Mixins.BasinRecipeCoreMixin.toString(),
-                    isEarlyModLoaded("create"),
-            MixinUtils.Mixins.BasinRecipeJEIBlockMixin.toString(),
-                    isEarlyModLoaded("create")
-                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins),
-            MixinUtils.Mixins.BasinRecipeJEIItemsMixin.toString(),
-                    isEarlyModLoaded("create")
-                    && isEarlyConfigEnabled("create", MixinUtils.Configs.BasinRecipeJEIMixins)
+            MixinEnums.Mixins.BasinHeatMixin.toString(),
+                    isModLoadedEarly("create")
+                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinHeatMixin),
+            MixinEnums.Mixins.BasinMaxFluidInputMixin.toString(),
+                    isModLoadedEarly("create"),
+            MixinEnums.Mixins.BasinRecipeCoreMixin.toString(),
+                    isModLoadedEarly("create"),
+            MixinEnums.Mixins.BasinRecipeJEIBlockMixin.toString(),
+                    isModLoadedEarly("create")
+                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins),
+            MixinEnums.Mixins.BasinRecipeJEIItemsMixin.toString(),
+                    isModLoadedEarly("create")
+                    && isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins)
     );
 
     @Override
     public boolean shouldApplyMixin(String targetClassPathName, String mixinClassPathName) {
-        if (!isEarlyConfigPresent()) return false;
+        if (!isConfigPresent()) return false;
 
         String mixinName = mixinClassPathName.substring(mixinClassPathName.lastIndexOf('.') + 1);
 

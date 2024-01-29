@@ -20,6 +20,7 @@ public class TweaksConfigGUI {
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinMixins(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinHeats(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinMaxFluidInput(ENTRY_BUILDER));
+        CREATE_CATEGORY.addEntry(TweaksCreate.BasinAlloyRecipes(ENTRY_BUILDER));
 
         return BUILDER;
     }

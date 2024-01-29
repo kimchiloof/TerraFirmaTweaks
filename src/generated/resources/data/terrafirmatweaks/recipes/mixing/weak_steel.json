@@ -1,5 +1,12 @@
 {
   "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "terrafirmatweaks:config_enabled",
+      "config": "CreateBasinAlloyRecipes",
+      "mod_id": "create"
+    }
+  ],
   "heatRequirement": "heated",
   "ingredients": [
     {
@@ -8,13 +15,13 @@
       "nbt": {}
     },
     {
-      "amount": 60,
-      "fluid": "tfc:metal/steel",
+      "amount": 20,
+      "fluid": "tfc:metal/nickel",
       "nbt": {}
     },
     {
-      "amount": 20,
-      "fluid": "tfc:metal/nickel",
+      "amount": 60,
+      "fluid": "tfc:metal/steel",
       "nbt": {}
     }
   ],
