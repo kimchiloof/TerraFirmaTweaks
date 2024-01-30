@@ -3,6 +3,7 @@ package mods.kimchiloof.terrafirmatweaks;
 import com.mojang.logging.LogUtils;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfigGUI;
+import mods.kimchiloof.terrafirmatweaks.tweaks.CreateBoilerHeater;
 import mods.kimchiloof.terrafirmatweaks.util.recipes.RecipeConfigEnabledCondition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,6 +32,7 @@ public class TerraFirmaTweaks {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::registerRecipeSerializers);
+        modEventBus.addListener(CreateBoilerHeater::registerTFCBoilerHeaters);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

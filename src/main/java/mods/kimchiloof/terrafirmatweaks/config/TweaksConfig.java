@@ -18,20 +18,26 @@ public class TweaksConfig {
             Mixin(Builder builder) {
                 builder.push("mixin");
 
-                overrideBasinHeat = builder
-                        .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
-                        .worldRestart()
-                        .define(MixinEnums.Configs.BasinHeatMixin.toString(), true);
-
                 overrideBasinJEIBlazeBurner = builder
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
                         .define(MixinEnums.Configs.BasinRecipeJEIMixins.toString(), true);
 
+                enableCharcoalForgeCreateHeat = builder
+                        .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
+                        .worldRestart()
+                        .define(MixinEnums.Configs.CharcoalForgeHeat.toString(), true);
+
+                enableFirepitCreateHeat = builder
+                        .comment("Whether to allow the firepit to heat Create basins and Steam engines")
+                        .worldRestart()
+                        .define(MixinEnums.Configs.FirepitHeat.toString(), true);
+
                 builder.pop();
             }
-            public final BooleanValue overrideBasinHeat;
             public final BooleanValue overrideBasinJEIBlazeBurner;
+            public final BooleanValue enableCharcoalForgeCreateHeat;
+            public final BooleanValue enableFirepitCreateHeat;
         }
 
         public static class BasinHeat {

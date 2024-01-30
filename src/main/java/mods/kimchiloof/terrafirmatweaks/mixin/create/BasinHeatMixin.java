@@ -7,6 +7,7 @@ import com.simibubi.create.content.processing.burner.BlazeBurnerBlock.HeatLevel;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.devices.CharcoalForgeBlock;
+import net.dries007.tfc.common.blocks.devices.FirepitBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BasinHeatMixin {
     @Inject(at = @At("HEAD"), method = "getHeatLevelOf", cancellable = true, remap = false)
     private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<HeatLevel> cir) {
-        if (state.hasProperty(CharcoalForgeBlock.HEAT)) {
+        if (state.hasProperty(CharcoalForgeBlock.HEAT) && TweaksConfig.CREATE.MIXIN.enableCharcoalForgeCreateHeat.get()) {
             // Charcoal forge heat (0-7)
             int charcoalForgeHeatLevel = state.getValue(CharcoalForgeBlock.HEAT);
 
@@ -39,6 +40,12 @@ public class BasinHeatMixin {
                 // Off
                 cir.setReturnValue(HeatLevel.NONE);
             }
+        } else if (state.hasProperty(FirepitBlock.LIT) && TweaksConfig.CREATE.MIXIN.enableFirepitCreateHeat.get()) {
+            // Firepit heat
+            cir.setReturnValue(state.getValue(FirepitBlock.LIT)
+                    ? HeatLevel.KINDLED
+                    : HeatLevel.NONE
+            );
         } else if (state.hasProperty(BlazeBurnerBlock.HEAT_LEVEL)) {
             // Blaze burner heat
             cir.setReturnValue(state.getValue(BlazeBurnerBlock.HEAT_LEVEL));
@@ -50,6 +57,7 @@ public class BasinHeatMixin {
                             : HeatLevel.NONE
             );
         }
+
         cir.cancel();
     }
 }

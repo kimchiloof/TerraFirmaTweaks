@@ -14,30 +14,19 @@ import net.minecraft.network.chat.Component;
 @SuppressWarnings("UnstableApiUsage")
 public class TweaksCreate {
     // Mixin Configs
-    private static BooleanListEntry mixinOverrideBasinHeat;
     private static BooleanListEntry mixinOverrideJEIBlazeBurner;
+    private static BooleanListEntry enableCharcoalForgeCreateHeat;
+    private static BooleanListEntry enableFirepitCreateHeat;
 
     public static SubCategoryListEntry BasinMixins(ConfigEntryBuilder ENTRY_BUILDER) {
         SubCategoryBuilder createMixinsCategoryBuilder = ENTRY_BUILDER.startSubCategory(Component.literal("Create Mixins"))
                 .setTooltip(Component.literal("Requires Create mod.\nChanges require game restart"))
                 .setExpanded(true);
 
-        mixinOverrideBasinHeat =
-                ENTRY_BUILDER
-                        .startBooleanToggle(
-                                Component.literal("Use Basin Heat Override"),
-                                TweaksConfig.CREATE.MIXIN.overrideBasinHeat.get()
-                        )
-                        .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinHeat::set)
-                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
-                        .setTooltip(Component.literal("Allow Charcoal Forge to heat Create basins and Steam engines"))
-                        .requireRestart()
-                        .build();
-
         mixinOverrideJEIBlazeBurner =
                 ENTRY_BUILDER
                         .startBooleanToggle(
-                                Component.literal("Use JEI Blaze Burner Override"),
+                                Component.literal("Show Charcoal Forge in JEI"),
                                 TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner.get()
                         )
                         .setSaveConsumer(TweaksConfig.CREATE.MIXIN.overrideBasinJEIBlazeBurner::set)
@@ -46,17 +35,45 @@ public class TweaksCreate {
                         .requireRestart()
                         .build();
 
-        createMixinsCategoryBuilder.add(mixinOverrideBasinHeat);
+        enableCharcoalForgeCreateHeat =
+                ENTRY_BUILDER
+                        .startBooleanToggle(
+                                Component.literal("Charcoal Forge Basin Heat Override"),
+                                TweaksConfig.CREATE.MIXIN.enableCharcoalForgeCreateHeat.get()
+                        )
+                        .setSaveConsumer(TweaksConfig.CREATE.MIXIN.enableCharcoalForgeCreateHeat::set)
+                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
+                        .setTooltip(Component.literal("Allow the Charcoal Forge to heat Create basins and Steam engines"))
+                        .requireRestart()
+                        .build();
+
+        enableFirepitCreateHeat =
+                ENTRY_BUILDER
+                        .startBooleanToggle(
+                                Component.literal("Firepit Basin Heat Override"),
+                                TweaksConfig.CREATE.MIXIN.enableFirepitCreateHeat.get()
+                        )
+                        .setSaveConsumer(TweaksConfig.CREATE.MIXIN.enableFirepitCreateHeat::set)
+                        .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
+                        .setTooltip(Component.literal("Allow Firepit to heat Create basins and Steam engines"))
+                        .requireRestart()
+                        .build();
+
         createMixinsCategoryBuilder.add(mixinOverrideJEIBlazeBurner);
+        createMixinsCategoryBuilder.add(enableCharcoalForgeCreateHeat);
+        createMixinsCategoryBuilder.add(enableFirepitCreateHeat);
 
         return createMixinsCategoryBuilder.build();
     }
 
     public static SubCategoryListEntry BasinHeats(ConfigEntryBuilder ENTRY_BUILDER) {
         SubCategoryBuilder basinHeatCategoryBuilder = ENTRY_BUILDER.startSubCategory(Component.literal("Basin Heat Override Options"))
-                        .setTooltip(Component.literal("Requires \"Use Basin Heat Override\" to be enabled"))
+                        .setTooltip(Component.literal("Requires any \"Basin Heat Override\" to be enabled"))
                         .setRequirement(Requirement.all(
-                                Requirement.isTrue(mixinOverrideBasinHeat),
+                                Requirement.any(
+                                        Requirement.isTrue(enableCharcoalForgeCreateHeat),
+                                        Requirement.isTrue(enableFirepitCreateHeat)
+                                ),
                                 Requirement.isTrue(ConfigUtils.isModLoadedConfig("create"))
                         ));
 

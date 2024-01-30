@@ -16,7 +16,8 @@ public class MixinEnums {
      * The names of the config paths used by TweaksConfig.
      */
     public enum Configs {
-        BasinHeatMixin,
-        BasinRecipeJEIMixins
+        CharcoalForgeHeat,
+        BasinRecipeJEIMixins,
+        FirepitHeat
     }
 }
