@@ -30,10 +30,7 @@ public class TweaksBlockTagGenerator extends BlockTagsProvider {
      * Tags all blocks that can passively heat a basin
      */
     private void addPassiveBoilerTags() {
-        this.tag(AllTags.AllBlockTags.PASSIVE_BOILER_HEATERS.tag)
-                .add(TFCBlocks.FIREPIT.get());
-
-        TFCBlocks.MAGMA_BLOCKS.forEach((rock, blockRegistryObject) ->
+       TFCBlocks.MAGMA_BLOCKS.forEach((rock, blockRegistryObject) ->
                 this.tag(AllTags.AllBlockTags.PASSIVE_BOILER_HEATERS.tag)
                     .add(blockRegistryObject.get()));
     }
