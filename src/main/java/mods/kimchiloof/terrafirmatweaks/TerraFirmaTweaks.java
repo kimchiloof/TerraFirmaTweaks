@@ -3,12 +3,11 @@ package mods.kimchiloof.terrafirmatweaks;
 import com.mojang.logging.LogUtils;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfigGUI;
-import mods.kimchiloof.terrafirmatweaks.tweaks.CreateBoilerHeater;
+import mods.kimchiloof.terrafirmatweaks.tweaks.CreateBoilerHeaters;
 import mods.kimchiloof.terrafirmatweaks.util.recipes.RecipeConfigEnabledCondition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
@@ -16,8 +15,6 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 @Mod(TerraFirmaTweaks.MOD_ID)
@@ -31,8 +28,8 @@ public class TerraFirmaTweaks {
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        modEventBus.addListener(this::registerRecipeSerializers);
-        modEventBus.addListener(CreateBoilerHeater::registerTFCBoilerHeaters);
+        modEventBus.addListener(RecipeConfigEnabledCondition::register);
+        modEventBus.addListener(CreateBoilerHeaters::register);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -48,12 +45,6 @@ public class TerraFirmaTweaks {
         // Load config GUI
         if (ModList.get().isLoaded("cloth_config")) {
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> TweaksConfigGUI::registerConfigGUI);
-        }
-    }
-
-    private void registerRecipeSerializers(RegisterEvent event) {
-        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
-            CraftingHelper.register(RecipeConfigEnabledCondition.Serializer.INSTANCE);
         }
     }
 

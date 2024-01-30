@@ -5,14 +5,23 @@ import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 
 import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isRecipeConfigEnabled;
 
 @Mod(TerraFirmaTweaks.MOD_ID)
 public class RecipeConfigEnabledCondition implements ICondition {
+    public static void register(RegisterEvent event) {
+        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
+            CraftingHelper.register(Serializer.INSTANCE);
+        }
+    }
+
     private static final ResourceLocation NAME = TerraFirmaTweaks.newRes("config_enabled");
     private final String mod_id;
     private final RecipeEnums.Configs config;

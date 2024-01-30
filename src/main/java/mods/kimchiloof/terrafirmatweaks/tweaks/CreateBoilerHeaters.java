@@ -12,8 +12,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static com.simibubi.create.content.fluids.tank.BoilerHeaters.registerHeater;
 
-public class CreateBoilerHeater {
-    public static void registerTFCBoilerHeaters(FMLCommonSetupEvent event) {
+public class CreateBoilerHeaters {
+    public static void register(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             if (TweaksConfig.CREATE.MIXIN.enableCharcoalForgeCreateHeat.get())
                 registerHeater(TFCBlocks.CHARCOAL_FORGE.get(), new CharcoalForgeBoilerHeater());
