@@ -1,11 +1,139 @@
 {
   "values": [
+    "tfc:metal/bars/bismuth_bronze",
+    "tfc:metal/chain/bismuth_bronze",
+    "tfc:metal/lamp/bismuth_bronze",
+    "tfc:metal/trapdoor/bismuth_bronze",
+    "tfc:metal/bars/black_bronze",
+    "tfc:metal/chain/black_bronze",
+    "tfc:metal/lamp/black_bronze",
+    "tfc:metal/trapdoor/black_bronze",
+    "tfc:metal/bars/bronze",
+    "tfc:metal/chain/bronze",
+    "tfc:metal/lamp/bronze",
+    "tfc:metal/trapdoor/bronze",
+    "tfc:metal/bars/copper",
+    "tfc:metal/chain/copper",
+    "tfc:metal/lamp/copper",
+    "tfc:metal/trapdoor/copper",
+    "tfc:metal/bars/wrought_iron",
+    "tfc:metal/chain/wrought_iron",
+    "tfc:metal/lamp/wrought_iron",
+    "tfc:metal/trapdoor/wrought_iron",
+    "tfc:metal/bars/steel",
+    "tfc:metal/chain/steel",
+    "tfc:metal/lamp/steel",
+    "tfc:metal/trapdoor/steel",
+    "tfc:metal/bars/black_steel",
+    "tfc:metal/chain/black_steel",
+    "tfc:metal/lamp/black_steel",
+    "tfc:metal/trapdoor/black_steel",
+    "tfc:metal/bars/blue_steel",
+    "tfc:metal/chain/blue_steel",
+    "tfc:metal/lamp/blue_steel",
+    "tfc:metal/trapdoor/blue_steel",
+    "tfc:metal/bars/red_steel",
+    "tfc:metal/chain/red_steel",
+    "tfc:metal/lamp/red_steel",
+    "tfc:metal/trapdoor/red_steel",
+    "#minecraft:trapdoors",
+    "#minecraft:buttons",
+    "#minecraft:signs",
+    "#minecraft:all_signs",
+    "#minecraft:standing_signs",
+    "#minecraft:wall_signs",
+    "#minecraft:all_hanging_signs",
+    "#minecraft:wall_hanging_signs",
+    "#minecraft:ceiling_hanging_signs",
+    "#forge:glass_panes",
+    "minecraft:torch",
+    "tfc:torch",
     {
       "id": "create:basin",
       "required": false
     },
     {
       "id": "create:fluid_tank",
+      "required": false
+    },
+    {
+      "id": "create:steam_engine",
+      "required": false
+    },
+    {
+      "id": "create:shaft",
+      "required": false
+    },
+    {
+      "id": "create:cogwheel",
+      "required": false
+    },
+    {
+      "id": "create:large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "create:belt",
+      "required": false
+    },
+    {
+      "id": "create:fluid_pipe",
+      "required": false
+    },
+    {
+      "id": "create:fluid_valve",
+      "required": false
+    },
+    {
+      "id": "create:smart_fluid_pipe",
+      "required": false
+    },
+    {
+      "id": "create:mechanical_pump",
+      "required": false
+    },
+    {
+      "id": "create:chute",
+      "required": false
+    },
+    {
+      "id": "create:smart_chute",
+      "required": false
+    },
+    {
+      "id": "create:andesite_funnel",
+      "required": false
+    },
+    {
+      "id": "create:brass_funnel",
+      "required": false
+    },
+    {
+      "id": "create:andesite_scaffolding",
+      "required": false
+    },
+    {
+      "id": "create:brass_scaffolding",
+      "required": false
+    },
+    {
+      "id": "create:copper_scaffolding",
+      "required": false
+    },
+    {
+      "id": "create:andesite_bars",
+      "required": false
+    },
+    {
+      "id": "create:brass_bars",
+      "required": false
+    },
+    {
+      "id": "create:copper_bars",
+      "required": false
+    },
+    {
+      "id": "#create:fan_transparent",
       "required": false
     }
   ]
