@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isConfigPresent;
 import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isMixinConfigEnabled;
 import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isModLoadedEarly;
 
