@@ -29,10 +29,7 @@ public class TweaksMixinPluginManager implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassPathName, String mixinClassPathName) {
-        if (!isConfigPresent()) return false;
-
         String mixinName = mixinClassPathName.substring(mixinClassPathName.lastIndexOf('.') + 1);
-
         boolean isApplied = mixinApplyMap.getOrDefault(mixinName, false);
 
         TerraFirmaTweaks.LOGGER.info("TerraFirmaTweaks applying mixin: {} -> {}", mixinName, isApplied);
