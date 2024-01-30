@@ -8,7 +8,6 @@ import com.simibubi.create.foundation.utility.BlockHelper;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.devices.CharcoalForgeBlock;
 import net.dries007.tfc.common.blocks.devices.FirepitBlock;
-import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -47,10 +46,10 @@ public class BasinHeatMixin {
                 cir.setReturnValue(HeatLevel.NONE);
             } else {
                 // Kindling requirement too high for firepit
-                if (TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get().ordinal() >= Heat.BRIGHT_RED.ordinal()) {
-                    cir.setReturnValue(HeatLevel.SMOULDERING);
-                } else {
+                if (TweaksConfig.CREATE.BASIN_HEAT_LEVEL.firepitKindles.get()) {
                     cir.setReturnValue(HeatLevel.KINDLED);
+                } else {
+                    cir.setReturnValue(HeatLevel.SMOULDERING);
                 }
             }
         } else if (state.hasProperty(BlazeBurnerBlock.HEAT_LEVEL)) {

@@ -31,7 +31,7 @@ public class TweaksConfig {
                 enableFirepitCreateHeat = builder
                         .comment("Whether to allow the firepit to heat Create basins and Steam engines")
                         .worldRestart()
-                        .define(MixinEnums.Configs.FirepitHeat.toString(), true);
+                        .define(MixinEnums.Configs.FirepitHeat.toString(), false);
 
                 builder.pop();
             }
@@ -56,11 +56,16 @@ public class TweaksConfig {
                         .comment("The min heat level at which a charcoal forge is considered smouldering (passively heating)")
                         .defineEnum("smoulderingBasinHeat", Heat.FAINT_RED);
 
+                firepitKindles = builder
+                        .comment("Whether a lit firepit is considered kindling (heating)")
+                        .define("firepitKindles", false);
+
                 builder.pop();
             }
             public final EnumValue<Heat> seething;
             public final EnumValue<Heat> kindling;
             public final EnumValue<Heat> smouldering;
+            public final BooleanValue firepitKindles;
         }
 
         public final IntValue basinMaxFluidInput;

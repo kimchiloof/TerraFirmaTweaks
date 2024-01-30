@@ -5,7 +5,6 @@ import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.devices.CharcoalForgeBlock;
 import net.dries007.tfc.common.blocks.devices.FirepitBlock;
-import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -54,10 +53,10 @@ public class CreateBoilerHeater {
                 return -1;
             } else {
                 // Kindling requirement too high for firepit
-                if (TweaksConfig.CREATE.BASIN_HEAT_LEVEL.kindling.get().ordinal() >= Heat.BRIGHT_RED.ordinal()) {
-                    return 0;
-                } else {
+                if (TweaksConfig.CREATE.BASIN_HEAT_LEVEL.firepitKindles.get()) {
                     return 1;
+                } else {
+                    return 0;
                 }
             }
         }

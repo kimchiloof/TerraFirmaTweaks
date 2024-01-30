@@ -45,6 +45,7 @@ public class TweaksCreate {
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                         .setTooltip(Component.literal("Allow the Charcoal Forge to heat Create basins and Steam engines"))
                         .requireRestart()
+                        .setDefaultValue(true)
                         .build();
 
         enableFirepitCreateHeat =
@@ -57,6 +58,7 @@ public class TweaksCreate {
                         .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                         .setTooltip(Component.literal("Allow Firepit to heat Create basins and Steam engines"))
                         .requireRestart()
+                        .setDefaultValue(false)
                         .build();
 
         createMixinsCategoryBuilder.add(mixinOverrideJEIBlazeBurner);
@@ -116,6 +118,19 @@ public class TweaksCreate {
                         .build()
         );
 
+        basinHeatCategoryBuilder.add(
+                ENTRY_BUILDER
+                        .startBooleanToggle(
+                                Component.literal("Firepit Kindles"),
+                                TweaksConfig.CREATE.BASIN_HEAT_LEVEL.firepitKindles.get()
+                        )
+                        .setSaveConsumer(TweaksConfig.CREATE.BASIN_HEAT_LEVEL.firepitKindles::set)
+                        .setTooltip(Component.literal("When true, lit firepits are treated as 'kindling', otherwise 'smouldering'"))
+                        .setRequirement(Requirement.isTrue(enableFirepitCreateHeat))
+                        .setDefaultValue(false)
+                        .build()
+        );
+
         return basinHeatCategoryBuilder.build();
     }
 
@@ -126,6 +141,7 @@ public class TweaksCreate {
                         TweaksConfig.CREATE.basinMaxFluidInput.get()
                 )
                 .setMin(4)
+                .setDefaultValue(4)
                 .setSaveConsumer(TweaksConfig.CREATE.basinMaxFluidInput::set)
                 .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                 .setTooltip(Component.literal("The max numbers of fluids that can be input into a basin at once"))
@@ -141,6 +157,7 @@ public class TweaksCreate {
                 .setSaveConsumer(TweaksConfig.CREATE.basinAlloyRecipes::set)
                 .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
                 .setTooltip(Component.literal("Whether to add alloy recipes to the basin"))
+                .setDefaultValue(true)
                 .build();
     }
 }
