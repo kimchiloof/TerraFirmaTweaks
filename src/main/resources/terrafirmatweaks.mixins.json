@@ -10,7 +10,8 @@
     "create.BasinMaxFluidInputMixin",
     "create.BasinRecipeCoreMixin",
     "create.BasinRecipeJEIBlockMixin",
-    "create.BasinRecipeJEIItemsMixin"
+    "create.BasinRecipeJEIItemsMixin",
+    "create.FluidFilterMixin"
   ],
   "client": [
   ],

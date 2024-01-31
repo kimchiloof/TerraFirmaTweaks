@@ -26,6 +26,8 @@ public class TweaksMixinPluginManager implements IMixinConfigPlugin {
                     isMixinConfigEnabled("create", ConfigEnums.Mixins.BasinRecipeJEIMixins),
             Mixins.BasinRecipeJEIItemsMixin.toString(),
                     isMixinConfigEnabled("create", ConfigEnums.Mixins.BasinRecipeJEIMixins),
+            Mixins.FluidFilterMixin.toString(),
+                    isModLoadedEarly("create")
     );
 
     @Override

@@ -160,4 +160,17 @@ public class TweaksCreate {
                 .setDefaultValue(true)
                 .build();
     }
+
+    public static BooleanListEntry EnableIngotFluidFilter(ConfigEntryBuilder ENTRY_BUILDER) {
+        return ENTRY_BUILDER
+                .startBooleanToggle(
+                        Component.literal("Ingot Fluid Filter"),
+                        TweaksConfig.CREATE.enableIngotFluidFilter.get()
+                )
+                .setSaveConsumer(TweaksConfig.CREATE.enableIngotFluidFilter::set)
+                .setRequirement(Requirement.isTrue(ConfigUtils.isModLoadedConfig("create")))
+                .setTooltip(Component.literal("Whether to allow metal ingots to be used as fluid filters for Create pipes"))
+                .setDefaultValue(true)
+                .build();
+    }
 }

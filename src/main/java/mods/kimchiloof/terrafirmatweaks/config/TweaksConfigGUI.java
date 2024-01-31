@@ -21,6 +21,7 @@ public class TweaksConfigGUI {
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinHeats(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinMaxFluidInput(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinAlloyRecipes(ENTRY_BUILDER));
+        CREATE_CATEGORY.addEntry(TweaksCreate.EnableIngotFluidFilter(ENTRY_BUILDER));
 
         return BUILDER;
     }
