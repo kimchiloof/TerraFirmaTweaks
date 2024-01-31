@@ -10,20 +10,29 @@ TerraFirmaTweaks is a Minecraft 1.20.1 mod addon for [TerraFirmaCraft](https://w
 
 The aim is to be an all-in-one solution to TerraFirmaCraft bugs and incompatibilities, while offering as much user customizations as possible. 
 
-Why make TerraFirmaTweaks? 
+<h3>Why make TerraFirmaTweaks?</h3>
+
 1. A lack of some configuration options in previous tweaks mods
 2. Tweaks were found in many different mods, some overlapping
 3. Some tweaks missing from 1.20.1 TFC
 4. Just wanted to try out modding :)
 
-Currently implemented mods include:
-- [Create](https://www.curseforge.com/minecraft/mc-mods/create)
-
-Currently implemented options include:
-- TODO
-
 Feel free to open new issues documenting problems or suggestions, and pull requests if you have some changes you'd like to see added! I will review them as I have time.
 
+## Available options 
+Note that **non**-configurable options in _italics_
+
+<details>
+    <summary>Create <a href="https://www.curseforge.com/minecraft/mc-mods/create">@ Curseforge</a></summary>
+    <ul>
+        <li>TFC charcoal forge and/or firepit provide heat to Create's basin and steam engine</li>
+        <li>Replace the blaze burner in JEI for Create basin recipes with the TFC charcoal forge</li>
+        <li>Replace the labels in JEI for Create basin recipes with TFC temperature and charcoal forge fuels</li>
+        <li>Add recipes to allow TFC alloys to be made in the Create basin</li>
+        <li>Allow vessel's with molten fluid and/or metal ingots to be used as fluid filters for their respective molten metals</li>
+    </ul>
+</details>
+    
 ## Installation
 
 This mod requires:
