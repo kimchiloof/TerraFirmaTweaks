@@ -56,7 +56,7 @@ public class CreateBoilerHeaters {
                 if (TweaksConfig.CREATE.BASIN_HEAT_LEVEL.firepitKindles.get()) {
                     return 1;
                 } else {
-                    return 0;
+                    return 0.51f;
                 }
             }
         }
