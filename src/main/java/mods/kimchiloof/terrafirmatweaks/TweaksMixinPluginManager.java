@@ -1,6 +1,7 @@
 package mods.kimchiloof.terrafirmatweaks;
 
-import mods.kimchiloof.terrafirmatweaks.util.MixinEnums;
+import mods.kimchiloof.terrafirmatweaks.util.MixinEnums.Mixins;
+import mods.kimchiloof.terrafirmatweaks.util.ConfigEnums;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -14,17 +15,17 @@ import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isModLoadedEarly
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
-            MixinEnums.Mixins.BasinHeatMixin.toString(),
-                    isMixinConfigEnabled("create", MixinEnums.Configs.CharcoalForgeHeat)
-                        || isMixinConfigEnabled("create", MixinEnums.Configs.FirepitHeat),
-            MixinEnums.Mixins.BasinMaxFluidInputMixin.toString(),
+            Mixins.BasinHeatMixin.toString(),
+                    isMixinConfigEnabled("create", ConfigEnums.Mixins.CharcoalForgeHeat)
+                        || isMixinConfigEnabled("create", ConfigEnums.Mixins.FirepitHeat),
+            Mixins.BasinMaxFluidInputMixin.toString(),
                     isModLoadedEarly("create"),
-            MixinEnums.Mixins.BasinRecipeCoreMixin.toString(),
+            Mixins.BasinRecipeCoreMixin.toString(),
                     isModLoadedEarly("create"),
-            MixinEnums.Mixins.BasinRecipeJEIBlockMixin.toString(),
-                    isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins),
-            MixinEnums.Mixins.BasinRecipeJEIItemsMixin.toString(),
-                    isMixinConfigEnabled("create", MixinEnums.Configs.BasinRecipeJEIMixins)
+            Mixins.BasinRecipeJEIBlockMixin.toString(),
+                    isMixinConfigEnabled("create", ConfigEnums.Mixins.BasinRecipeJEIMixins),
+            Mixins.BasinRecipeJEIItemsMixin.toString(),
+                    isMixinConfigEnabled("create", ConfigEnums.Mixins.BasinRecipeJEIMixins),
     );
 
     @Override

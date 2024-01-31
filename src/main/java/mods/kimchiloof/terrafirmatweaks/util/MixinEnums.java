@@ -9,15 +9,6 @@ public class MixinEnums {
         BasinMaxFluidInputMixin,
         BasinRecipeCoreMixin,
         BasinRecipeJEIBlockMixin,
-        BasinRecipeJEIItemsMixin
-    }
-
-    /**
-     * The names of the config paths used by TweaksConfig.
-     */
-    public enum Configs {
-        CharcoalForgeHeat,
-        BasinRecipeJEIMixins,
-        FirepitHeat
+        BasinRecipeJEIItemsMixin,
     }
 }

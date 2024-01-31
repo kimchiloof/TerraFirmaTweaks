@@ -22,12 +22,12 @@ public class ConfigUtils {
     }
 
     // Config enabled
-    public static boolean isRecipeConfigEnabled(String mod_id, RecipeEnums.Configs configKey) {
+    public static boolean isRecipeConfigEnabled(String mod_id, ConfigEnums.Recipes configKey) {
         return ModList.get().isLoaded(mod_id)
                 && getConfigBooleanValue(mod_id, configKey.toString());
     }
 
-    public static boolean isMixinConfigEnabled(String mod_id, MixinEnums.Configs configKey) {
+    public static boolean isMixinConfigEnabled(String mod_id, ConfigEnums.Mixins configKey) {
         return isModLoadedEarly(mod_id)
                 && getConfigBooleanValue(mod_id, "mixin." + configKey.toString());
     }

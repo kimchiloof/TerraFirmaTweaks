@@ -5,7 +5,7 @@ import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.foundation.data.recipe.ProcessingRecipeGen;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
-import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
+import mods.kimchiloof.terrafirmatweaks.util.ConfigEnums;
 import mods.kimchiloof.terrafirmatweaks.util.constants.AlloyConstants;
 import mods.kimchiloof.terrafirmatweaks.util.objects.Alloy;
 import mods.kimchiloof.terrafirmatweaks.util.recipes.RecipeConfigEnabledCondition;
@@ -27,12 +27,12 @@ public class BasinAlloyRecipeGenerator extends ProcessingRecipeGen {
         for (Alloy alloy : AlloyConstants.TFC_ALLOYS) {
             recipes.add(
                     create(
-                            TerraFirmaTweaks.newRes(alloy.getResultAlloy()),
+                            TerraFirmaTweaks.newRes(alloy.alloy()),
                             processingRecipeBuilder -> {
                                     // Inputs
                                     AtomicInteger amountCheck = new AtomicInteger();
 
-                                    alloy.getElements().forEach((element, pair) -> {
+                                    alloy.elements().forEach((element, pair) -> {
                                         processingRecipeBuilder.require(
                                                 TFCFluids.METALS.get(Metal.Default.valueOf(element.toUpperCase())).source().get(),
                                                 Math.round(pair.def() * 100)
@@ -44,7 +44,7 @@ public class BasinAlloyRecipeGenerator extends ProcessingRecipeGen {
                                     if (amountCheck.get() != 100) {
                                         throw new RuntimeException(
                                                 "Total sum mismatch for "
-                                                + alloy.getResultAlloy()
+                                                + alloy.alloy()
                                                 + ". Expected: 100, got: "
                                                 + amountCheck.get()
                                         );
@@ -52,19 +52,19 @@ public class BasinAlloyRecipeGenerator extends ProcessingRecipeGen {
 
                                     // Outputs
                                     processingRecipeBuilder.output(
-                                            TFCFluids.METALS.get(Metal.Default.valueOf(alloy.getResultAlloy().toUpperCase())).source().get(),
+                                            TFCFluids.METALS.get(Metal.Default.valueOf(alloy.alloy().toUpperCase())).source().get(),
                                             100
                                     );
 
                                     processingRecipeBuilder.requiresHeat(
                                             // Not configurable - based on defaults
                                             // Will scale based on selected SUPERHEATED config value
-                                            alloy.getMeltTemp() >= Heat.BRILLIANT_WHITE.getMin()
+                                            alloy.meltTemp() >= Heat.BRILLIANT_WHITE.getMin()
                                                     ? HeatCondition.SUPERHEATED
                                                     : HeatCondition.HEATED
                                     );
                                     processingRecipeBuilder.withCondition(
-                                            new RecipeConfigEnabledCondition("create", RecipeEnums.Configs.CreateBasinAlloyRecipes)
+                                            new RecipeConfigEnabledCondition("create", ConfigEnums.Recipes.CreateBasinAlloyRecipes)
                                     );
 
                                     return processingRecipeBuilder;

@@ -2,7 +2,7 @@ package mods.kimchiloof.terrafirmatweaks.util.recipes;
 
 import com.google.gson.JsonObject;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
-import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
+import mods.kimchiloof.terrafirmatweaks.util.ConfigEnums;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraftforge.common.crafting.CraftingHelper;
@@ -24,9 +24,9 @@ public class RecipeConfigEnabledCondition implements ICondition {
 
     private static final ResourceLocation NAME = TerraFirmaTweaks.newRes("config_enabled");
     private final String mod_id;
-    private final RecipeEnums.Configs config;
+    private final ConfigEnums.Recipes config;
 
-    public RecipeConfigEnabledCondition(String mod_id, RecipeEnums.Configs config) {
+    public RecipeConfigEnabledCondition(String mod_id, ConfigEnums.Recipes config) {
         this.mod_id = mod_id;
         this.config = config;
     }
@@ -59,7 +59,7 @@ public class RecipeConfigEnabledCondition implements ICondition {
         public RecipeConfigEnabledCondition read(JsonObject json) {
             return new RecipeConfigEnabledCondition(
                     GsonHelper.getAsString(json, "mod_id"),
-                    RecipeEnums.Configs.valueOf(GsonHelper.getAsString(json, "config"))
+                    ConfigEnums.Recipes.valueOf(GsonHelper.getAsString(json, "config"))
             );
         }
 

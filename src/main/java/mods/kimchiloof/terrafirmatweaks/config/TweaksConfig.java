@@ -1,8 +1,7 @@
 package mods.kimchiloof.terrafirmatweaks.config;
 
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
-import mods.kimchiloof.terrafirmatweaks.util.MixinEnums;
-import mods.kimchiloof.terrafirmatweaks.util.RecipeEnums;
+import mods.kimchiloof.terrafirmatweaks.util.ConfigEnums;
 import net.dries007.tfc.common.capabilities.heat.Heat;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
@@ -21,17 +20,17 @@ public class TweaksConfig {
                 overrideBasinJEIBlazeBurner = builder
                         .comment("Whether to override the JEI animation of the blaze burner to be a charcoal forge instead")
                         .worldRestart()
-                        .define(MixinEnums.Configs.BasinRecipeJEIMixins.toString(), true);
+                        .define(ConfigEnums.Mixins.BasinRecipeJEIMixins.toString(), true);
 
                 enableCharcoalForgeCreateHeat = builder
                         .comment("Whether to allow the charcoal forge to heat Create basins and Steam engines")
                         .worldRestart()
-                        .define(MixinEnums.Configs.CharcoalForgeHeat.toString(), true);
+                        .define(ConfigEnums.Mixins.CharcoalForgeHeat.toString(), true);
 
                 enableFirepitCreateHeat = builder
                         .comment("Whether to allow the firepit to heat Create basins and Steam engines")
                         .worldRestart()
-                        .define(MixinEnums.Configs.FirepitHeat.toString(), false);
+                        .define(ConfigEnums.Mixins.FirepitHeat.toString(), false);
 
                 builder.pop();
             }
@@ -70,6 +69,7 @@ public class TweaksConfig {
 
         public final IntValue basinMaxFluidInput;
         public final BooleanValue basinAlloyRecipes;
+        public final BooleanValue enableIngotFluidFilter;
 
         // Create Categories
         public final Mixin MIXIN;
@@ -88,7 +88,11 @@ public class TweaksConfig {
 
             basinAlloyRecipes = builder
                     .comment("Whether to add alloy recipes to the basin")
-                    .define(RecipeEnums.Configs.CreateBasinAlloyRecipes.toString(), true);
+                    .define(ConfigEnums.Recipes.CreateBasinAlloyRecipes.toString(), true);
+
+            enableIngotFluidFilter = builder
+                    .comment("Whether to allow metal ingots to be used as fluid filters for Create pipes")
+                    .define(ConfigEnums.General.EnableIngotFluidFilter.toString(), true);
 
             builder.pop();
         }
