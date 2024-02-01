@@ -30,7 +30,7 @@ public class FluidFilterMixin {
         Metal metalFromFilter = Metal.getFromIngot(filter);
 
         // Vessel as filter - requires molten alloy
-        if (vesselInventory != null && metalFromFilter != null) {
+        if (vesselInventory != null) {
             cir.setReturnValue(vesselInventory.getFluidInTank(0).equals(stack));
             cir.cancel();
         }
