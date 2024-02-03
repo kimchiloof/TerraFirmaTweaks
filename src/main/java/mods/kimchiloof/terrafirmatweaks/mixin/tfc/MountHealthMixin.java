@@ -2,7 +2,6 @@ package mods.kimchiloof.terrafirmatweaks.mixin.tfc;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.dries007.tfc.client.IngameOverlays;
-import net.dries007.tfc.common.capabilities.food.TFCFoodData;
 import net.dries007.tfc.config.HealthDisplayStyle;
 import net.dries007.tfc.config.TFCConfig;
 import net.minecraft.client.Minecraft;
