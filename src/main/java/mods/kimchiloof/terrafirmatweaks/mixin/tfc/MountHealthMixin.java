@@ -84,7 +84,13 @@ public class MountHealthMixin {
         // Health fill
         graphics.blit(TEXTURE, 0, 0, 90, 10, (int) (90 * percentHealth), 10);
 
-        // Absorption
+        // Damage / Regeneration highlight
+        if (entity.hurtTime > 0 || entity.hasEffect(MobEffects.REGENERATION))
+        {
+            graphics.blit(TEXTURE, 0, 1, 0, 30, 90, 8);
+        }
+
+        // Absorption fill
         float surplusPercent = Mth.clamp(percentHealth + (absorption / 20f) - 1, 0, 1);
         if (surplusPercent > 0)
         {
