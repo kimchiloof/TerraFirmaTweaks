@@ -4,7 +4,8 @@ public class ConfigEnums {
     public enum Mixins {
         CharcoalForgeHeat,
         BasinRecipeJEIMixins,
-        FirepitHeat
+        FirepitHeat,
+        MountHealthMixin
     }
 
     public enum General {

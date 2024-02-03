@@ -10,6 +10,7 @@ public class MixinEnums {
         BasinRecipeCoreMixin,
         BasinRecipeJEIBlockMixin,
         BasinRecipeJEIItemsMixin,
-        FluidFilterMixin
+        FluidFilterMixin,
+        MountHealthMixin
     }
 }

@@ -11,7 +11,8 @@
     "create.BasinRecipeCoreMixin",
     "create.BasinRecipeJEIBlockMixin",
     "create.BasinRecipeJEIItemsMixin",
-    "create.FluidFilterMixin"
+    "create.FluidFilterMixin",
+    "tfc.MountHealthMixin"
   ],
   "client": [
   ],

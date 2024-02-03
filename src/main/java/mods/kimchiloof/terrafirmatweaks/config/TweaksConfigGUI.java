@@ -4,6 +4,7 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import mods.kimchiloof.terrafirmatweaks.config.gui.TweaksCreate;
+import mods.kimchiloof.terrafirmatweaks.config.gui.TweaksTfc;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -15,7 +16,10 @@ public class TweaksConfigGUI {
 
         ConfigEntryBuilder ENTRY_BUILDER = BUILDER.entryBuilder();
 
+        ConfigCategory TFC_CATEGORY = BUILDER.getOrCreateCategory(Component.literal("TerraFirmaCraft"));
         ConfigCategory CREATE_CATEGORY = BUILDER.getOrCreateCategory(Component.literal("Create"));
+
+        TFC_CATEGORY.addEntry(TweaksTfc.MountHealthFix(ENTRY_BUILDER));
 
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinMixins(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinHeats(ENTRY_BUILDER));

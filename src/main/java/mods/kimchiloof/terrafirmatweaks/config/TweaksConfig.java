@@ -12,6 +12,34 @@ public class TweaksConfig {
     private static final Builder BUILDER = new Builder();
 
     // Config Categories
+    public static class Tfc {
+        public static class Mixin {
+            Mixin(Builder builder) {
+                builder.push("mixin");
+
+                enableMountHealthOverlayFix = builder
+                        .comment("Whether to revert the TFC mount health bar back to the vanilla location and color")
+                        .worldRestart()
+                        .define(ConfigEnums.Mixins.MountHealthMixin.toString(), true);
+
+                builder.pop();
+            }
+
+            public final BooleanValue enableMountHealthOverlayFix;
+        }
+
+        // TFC Categories
+        public final Mixin MIXIN;
+
+        Tfc(Builder builder) {
+            builder.push("tfc");
+
+            MIXIN = new Mixin(builder);
+
+            builder.pop();
+        }
+    }
+
     public static class Create {
         public static class Mixin {
             Mixin(Builder builder) {
@@ -100,9 +128,11 @@ public class TweaksConfig {
 
     // Config Initialization
     public static final ForgeConfigSpec SPEC;
+    public static final Tfc TFC;
     public static final Create CREATE;
 
     static {
+        TFC = new Tfc(BUILDER);
         CREATE = new Create(BUILDER);
 
         SPEC = BUILDER.build();

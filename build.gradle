@@ -117,6 +117,12 @@ dependencies {
     // TerraFirmaCraft - REQUIRED
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
 
+    // Config Menu Screens - TESTING
+    runtimeOnly fg.deobf("curse.maven:config-menus-forge-544048:4672356")
+
+    // Better Mods Button - TESTING
+    runtimeOnly fg.deobf("curse.maven:better-mods-button-541584:4665757")
+
     // Cloth Config
     compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
     runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
