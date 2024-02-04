@@ -1,0 +1,9 @@
+{
+    "parent": "firmalife:block/oven_bottom",
+    "textures": {
+      "bricks": "firmalife:block/oven_insulation",
+      "coals": "firmalife:block/oven/bottom/bricks_rustic_coals_lit",
+      "particle": "firmalife:block/rustic_bricks",
+      "front": "firmalife:block/oven/bottom/front_rustic"
+    }
+  }

@@ -108,20 +108,24 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
-    // Dependencies
+    // Required Dependencies
 
-    // Patchouli - REQUIRED
+    // Patchouli
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}")
 
-    // TerraFirmaCraft - REQUIRED
+    // TerraFirmaCraft
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
 
-    // Config Menu Screens - TESTING
+    // Testing Env Dependencies
+
+    // Config Menu Screens
     runtimeOnly fg.deobf("curse.maven:config-menus-forge-544048:4672356")
 
-    // Better Mods Button - TESTING
+    // Better Mods Button
     runtimeOnly fg.deobf("curse.maven:better-mods-button-541584:4665757")
+
+    // Optional Dependencies
 
     // Cloth Config
     compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_version}")
@@ -131,6 +135,10 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    // Firmalife
+    compileOnly fg.deobf("curse.maven:firmalife-453394:${firmalife_version}")
+    runtimeOnly fg.deobf("curse.maven:firmalife-453394:${firmalife_version}")
 
     // Create, Flywheel, Registrate
     compileOnly fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
@@ -146,6 +154,7 @@ processResources {
             minecraft_version_range: minecraft_version_range,
             forge_version_range: forge_version_range,
             tfc_version_range: tfc_version_range,
+            firmalife_version_range: firmalife_version_range,
             create_version_range: create_version_range,
             cloth_version_range: cloth_version_range,
 

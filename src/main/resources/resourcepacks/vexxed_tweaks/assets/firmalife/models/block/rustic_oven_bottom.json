@@ -1,0 +1,10 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "parent": "firmalife:block/oven_bottom",
+  "textures": {
+    "bricks": "firmalife:block/rustic_oven_side",
+	"coals": "firmalife:block/oven/bottom/bricks_rustic_coals_unlit",
+    "particle": "firmalife:block/rustic_bricks",
+	"front": "firmalife:block/oven/bottom/front_rustic"
+  }
+}
