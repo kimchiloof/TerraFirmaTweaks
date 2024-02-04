@@ -6,10 +6,23 @@ import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import net.minecraft.network.chat.Component;
 
 public class TweaksTfc {
-    public static BooleanListEntry MountHealthFix(ConfigEntryBuilder ENTRY_BUILDER) {
+    public static BooleanListEntry ArmorOverlay(ConfigEntryBuilder ENTRY_BUILDER) {
         return ENTRY_BUILDER
                 .startBooleanToggle(
-                        Component.literal("Fix Mount Health Bar"),
+                        Component.literal("Armor Overlay"),
+                        TweaksConfig.TFC.MIXIN.enableArmorOverlay.get()
+                )
+                .setSaveConsumer(TweaksConfig.TFC.MIXIN.enableArmorOverlay::set)
+                .setTooltip(Component.literal("Whether to replace the armor HUD with a TFC-style overlay"))
+                .setDefaultValue(true)
+                .requireRestart()
+                .build();
+    }
+
+    public static BooleanListEntry MountHealthOverlay(ConfigEntryBuilder ENTRY_BUILDER) {
+        return ENTRY_BUILDER
+                .startBooleanToggle(
+                        Component.literal("Mount Health Bar Overlay Fix"),
                         TweaksConfig.TFC.MIXIN.enableMountHealthOverlayFix.get()
                 )
                 .setSaveConsumer(TweaksConfig.TFC.MIXIN.enableMountHealthOverlayFix::set)

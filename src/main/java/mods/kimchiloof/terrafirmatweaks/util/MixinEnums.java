@@ -11,6 +11,7 @@ public class MixinEnums {
         BasinRecipeJEIBlockMixin,
         BasinRecipeJEIItemsMixin,
         FluidFilterMixin,
-        MountHealthMixin
+        OverlayArmorMixin,
+        OverlayMountHealthMixin,
     }
 }

@@ -9,12 +9,13 @@
     "create.BasinHeatMixin",
     "create.BasinMaxFluidInputMixin",
     "create.BasinRecipeCoreMixin",
-    "create.BasinRecipeJEIBlockMixin",
-    "create.BasinRecipeJEIItemsMixin",
-    "create.FluidFilterMixin",
-    "tfc.MountHealthMixin"
+    "create.FluidFilterMixin"
   ],
   "client": [
+    "create.BasinRecipeJEIBlockMixin",
+    "create.BasinRecipeJEIItemsMixin",
+    "tfc.OverlayArmorMixin",
+    "tfc.OverlayMountHealthMixin"
   ],
   "injectors": {
     "defaultRequire": 1

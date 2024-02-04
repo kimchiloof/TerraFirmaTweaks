@@ -19,7 +19,8 @@ public class TweaksConfigGUI {
         ConfigCategory TFC_CATEGORY = BUILDER.getOrCreateCategory(Component.literal("TerraFirmaCraft"));
         ConfigCategory CREATE_CATEGORY = BUILDER.getOrCreateCategory(Component.literal("Create"));
 
-        TFC_CATEGORY.addEntry(TweaksTfc.MountHealthFix(ENTRY_BUILDER));
+        TFC_CATEGORY.addEntry(TweaksTfc.ArmorOverlay(ENTRY_BUILDER));
+        TFC_CATEGORY.addEntry(TweaksTfc.MountHealthOverlay(ENTRY_BUILDER));
 
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinMixins(ENTRY_BUILDER));
         CREATE_CATEGORY.addEntry(TweaksCreate.BasinHeats(ENTRY_BUILDER));

@@ -3,6 +3,7 @@ package mods.kimchiloof.terrafirmatweaks;
 import com.mojang.logging.LogUtils;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfig;
 import mods.kimchiloof.terrafirmatweaks.config.TweaksConfigGUI;
+import mods.kimchiloof.terrafirmatweaks.events.AddPackFinderEvent;
 import mods.kimchiloof.terrafirmatweaks.tweaks.CreateBoilerHeaters;
 import mods.kimchiloof.terrafirmatweaks.util.recipes.RecipeConfigEnabledCondition;
 import net.minecraft.resources.ResourceLocation;
@@ -30,6 +31,7 @@ public class TerraFirmaTweaks {
 
         modEventBus.addListener(RecipeConfigEnabledCondition::register);
         modEventBus.addListener(CreateBoilerHeaters::register);
+        modEventBus.addListener(AddPackFinderEvent::findResourcePacks);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

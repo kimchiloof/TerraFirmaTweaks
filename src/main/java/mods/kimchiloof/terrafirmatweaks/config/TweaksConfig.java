@@ -17,14 +17,20 @@ public class TweaksConfig {
             Mixin(Builder builder) {
                 builder.push("mixin");
 
+                enableArmorOverlay = builder
+                        .comment("Whether to replace the armor HUD with a TFC-style overlay")
+                        .worldRestart()
+                        .define(ConfigEnums.Mixins.OverlayArmor.toString(), true);
+
                 enableMountHealthOverlayFix = builder
                         .comment("Whether to revert the TFC mount health bar back to the vanilla location and color")
                         .worldRestart()
-                        .define(ConfigEnums.Mixins.MountHealthMixin.toString(), true);
+                        .define(ConfigEnums.Mixins.OverlayMountHealth.toString(), true);
 
                 builder.pop();
             }
 
+            public final BooleanValue enableArmorOverlay;
             public final BooleanValue enableMountHealthOverlayFix;
         }
 

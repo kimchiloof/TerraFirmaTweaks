@@ -15,8 +15,10 @@ import static mods.kimchiloof.terrafirmatweaks.util.ConfigUtils.isModLoadedEarly
 
 public class TweaksMixinPluginManager implements IMixinConfigPlugin {
     private static final Map<String, Boolean> mixinApplyMap = Map.of(
-            Mixins.MountHealthMixin.toString(),
-                    isMixinConfigEnabled("tfc", ConfigEnums.Mixins.MountHealthMixin),
+            Mixins.OverlayArmorMixin.toString(),
+                    isMixinConfigEnabled("tfc", ConfigEnums.Mixins.OverlayArmor),
+            Mixins.OverlayMountHealthMixin.toString(),
+                    isMixinConfigEnabled("tfc", ConfigEnums.Mixins.OverlayMountHealth),
 
             Mixins.BasinHeatMixin.toString(),
                     isMixinConfigEnabled("create", ConfigEnums.Mixins.CharcoalForgeHeat)

@@ -23,8 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.awt.*;
 
 @Mixin(IngameOverlays.class)
-public class MountHealthMixin {
-
+public class OverlayMountHealthMixin {
     @Final
     @Shadow(remap = false)
     public static ResourceLocation TEXTURE;

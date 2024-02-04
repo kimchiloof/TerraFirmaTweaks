@@ -5,14 +5,15 @@ public class ConfigEnums {
         CharcoalForgeHeat,
         BasinRecipeJEIMixins,
         FirepitHeat,
-        MountHealthMixin
+        OverlayArmor,
+        OverlayMountHealth,
     }
 
     public enum General {
-        EnableIngotFluidFilter
+        EnableIngotFluidFilter,
     }
 
     public enum Recipes {
-        CreateBasinAlloyRecipes
+        CreateBasinAlloyRecipes,
     }
 }
