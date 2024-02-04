@@ -24,7 +24,7 @@ public class AddPackFinderEvent {
             event.addRepositorySource(consumer -> {
                 Pack pack = Pack.readMetaAndCreate(
                         TerraFirmaTweaks.newRes("vexxed_tweaks").toString(),
-                        Component.literal("TerraFirmaTweaks Vexxed Visuals Compatibility"),
+                        Component.literal("Vexxed Tweaks"),
                         false,
                         id -> new PathPackResources(id, modFileInfo.getFile().findResource("resourcepacks/vexxed_tweaks"), false),
                         PackType.CLIENT_RESOURCES,

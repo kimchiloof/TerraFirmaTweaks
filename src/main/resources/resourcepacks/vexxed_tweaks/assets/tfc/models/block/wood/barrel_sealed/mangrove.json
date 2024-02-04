@@ -1,0 +1,9 @@
+{
+	"parent": "tfc:block/barrel_sealed",
+	"textures": {
+		"particle": 	"tfc:block/wood/planks/mangrove",
+		"outside": 		"tfc:block/wood/barrel/outside/mangrove",
+		"inside": 		"tfc:block/wood/barrel/inside/mangrove",
+		"sheet": 		"tfc:block/wood/barrel/sheet/mangrove"
+	}
+}
