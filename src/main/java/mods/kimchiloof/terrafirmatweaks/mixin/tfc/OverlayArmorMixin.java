@@ -3,7 +3,6 @@ package mods.kimchiloof.terrafirmatweaks.mixin.tfc;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mods.kimchiloof.terrafirmatweaks.TerraFirmaTweaks;
 import net.dries007.tfc.client.IngameOverlays;
-import net.dries007.tfc.config.HealthDisplayStyle;
 import net.dries007.tfc.config.TFCConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -14,7 +13,6 @@ import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,10 +24,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class OverlayArmorMixin {
     @Unique
     private static final ResourceLocation TerraFirmaTweaks$TEXTURE = TerraFirmaTweaks.newRes("textures/gui/armor_overlay.png");
-
-    @Final
-    @Shadow(remap = false)
-    public static ResourceLocation TEXTURE;
 
     @Shadow(remap = false)
     private static boolean setupForSurvival(ForgeGui gui, Minecraft minecraft) { return false; }
@@ -80,7 +74,6 @@ public class OverlayArmorMixin {
     private static void TerraFirmaTweaks$RenderArmorBar(LivingEntity entity, ForgeGui gui, GuiGraphics graphics, int width, int height)
     {
         final PoseStack stack = graphics.pose();
-        HealthDisplayStyle style = TFCConfig.CLIENT.healthDisplayStyle.get();
 
         int armor = entity.getArmorValue();
         int maxArmor = 20;
@@ -97,15 +90,6 @@ public class OverlayArmorMixin {
         graphics.blit(TerraFirmaTweaks$TEXTURE, 0, 0, 0, 10, (int) (90 * percentArmor), 10);
 
         stack.popPose();
-
-
-//        String text = style.format(armor, maxArmor);
-//        stack.pushPose();
-//        graphics.setColor(1,1,1,1);
-//        stack.translate(centerX - 45, y + 2.5, 0);
-//        stack.scale(0.8f, 0.8f, 1.0f);
-//        graphics.drawString(gui.getFont(), text, -1 * gui.getFont().width(text) / 2, 0, Color.WHITE.getRGB(), false);
-//        stack.popPose();
 
         gui.leftHeight += 10;
     }
