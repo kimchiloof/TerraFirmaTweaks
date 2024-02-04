@@ -51,7 +51,13 @@ cd TerraFirmaTweaks
 
 ## Credits
 
+Licensed under the [EUPL v1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12):
+- Assets under `src/main/resources/assets` modified from [TerraFirmaCraft](https://www.curseforge.com/minecraft/mc-mods/terrafirmacraft)
+- Assets under `src/main/resources/resourcepacks/vexxed_tweaks` modified from [Vexxed Visuals](https://www.curseforge.com/minecraft/texture-packs/terrafirmacraft-vexxed-visuals)
+
 Some mixin code thanks to Serious Creeper's [TFC Tweaks (MIT)](https://www.curseforge.com/minecraft/mc-mods/tfc-tweaks-1-18-2) and [TFC Create (MIT)](https://www.curseforge.com/minecraft/mc-mods/tfc-create), Chauve Dev's [Wooden Cog (MIT)](https://www.curseforge.com/minecraft/mc-mods/wooden-cog)
+
+
 
 ## License
 
