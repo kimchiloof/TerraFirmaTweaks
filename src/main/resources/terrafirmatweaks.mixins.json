@@ -9,7 +9,8 @@
     "create.BasinHeatMixin",
     "create.BasinMaxFluidInputMixin",
     "create.BasinRecipeCoreMixin",
-    "create.FluidFilterMixin"
+    "create.FluidFilterMixin",
+    "firmalife.BoundingBoxOvenBottomBlockMixin"
   ],
   "client": [
     "create.BasinRecipeJEIBlockMixin",

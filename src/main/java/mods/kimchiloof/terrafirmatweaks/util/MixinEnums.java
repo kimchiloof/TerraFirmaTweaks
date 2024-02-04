@@ -13,5 +13,6 @@ public class MixinEnums {
         FluidFilterMixin,
         OverlayArmorMixin,
         OverlayMountHealthMixin,
+        BoundingBoxOvenBottomBlockMixin,
     }
 }

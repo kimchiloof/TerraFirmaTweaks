@@ -20,6 +20,9 @@ public class TweaksMixinPluginManager implements IMixinConfigPlugin {
             Mixins.OverlayMountHealthMixin.toString(),
                     isMixinConfigEnabled("tfc", ConfigEnums.Mixins.OverlayMountHealth),
 
+            Mixins.BoundingBoxOvenBottomBlockMixin.toString(),
+                    isModLoadedEarly("firmalife"),
+
             Mixins.BasinHeatMixin.toString(),
                     isMixinConfigEnabled("create", ConfigEnums.Mixins.CharcoalForgeHeat)
                         || isMixinConfigEnabled("create", ConfigEnums.Mixins.FirepitHeat),
