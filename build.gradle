@@ -6,7 +6,7 @@ plugins {
     id "idea"
 }
 
-group = "mod.${mod_publisher}.${mod_id}"
+group = "mods.${mod_publisher}.${mod_id}"
 version = "${mod_version}-${minecraft_version}"
 
 base { archivesName = mod_id }
