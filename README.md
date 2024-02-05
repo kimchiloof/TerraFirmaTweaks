@@ -75,6 +75,7 @@ Want more tweaks?
 This mod requires:
 - [Minecraft Forge](https://docs.minecraftforge.net/en/1.20.1/gettingstarted/)
 - [TerraFirmaCraft](https://www.curseforge.com/minecraft/mc-mods/terrafirmacraft)
+- [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config) is not explictly required, but is highly recommended to offer a nice GUI config menu (a less preferred though still functional alternative can be Create's config menu or [Forge Config Screens](https://www.curseforge.com/minecraft/mc-mods/config-menus-forge))
 
 To install, simply download the mod from this Github repo, the [Curseforge]() page, or the [Modrinth]() page, and drop into your 'mods' folder.
 
