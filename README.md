@@ -20,7 +20,7 @@ The aim is to be a (mostly) all-in-one solution to TerraFirmaCraft bugs and inco
 Feel free to open new issues documenting problems or suggestions, and pull requests if you have some changes you'd like to see added! I will review them as I have time.
 
 ## Available options 
-Note that **non**-configurable options (i.e., those without options in the config file) in _italics_
+Note that **non**-configurable options (i.e., those without options in the config file or another easy config method) are in _italics_
 
 <details>
     <summary>TerraFirmaCraft <a href="https://www.curseforge.com/minecraft/mc-mods/terrafirmacraft">@ Curseforge</a></summary>
@@ -29,7 +29,7 @@ Note that **non**-configurable options (i.e., those without options in the confi
         <li>Add a TFC-style bar for armor</li>
         <li><i>Allow many blocks to cover the top of a charcoal forge, when it makes visual sense</i>†</li>
         <li><i>Allow the creation of multiple side by side charcoal forges</i>†</li>
-        <li>Fix javelin, mangrove wood textures and add missing powder textures when using Vexxed Visuals</li>
+        <li>Fix javelin, mangrove wood textures and add missing powder textures when using Vexxed Visuals*</li>
     </ul>
 </details>
 
@@ -37,7 +37,7 @@ Note that **non**-configurable options (i.e., those without options in the confi
     <summary>Firmalife <a href="https://www.curseforge.com/minecraft/mc-mods/firmalife">@ Curseforge</a></summary>
     <ul>
         <li>Fix oven bounding box</li>
-        <li>Fix oven textures when using Vexxed Visuals</li>
+        <li>Fix oven textures when using Vexxed Visuals*</li>
     </ul>
 </details>
 
@@ -53,7 +53,9 @@ Note that **non**-configurable options (i.e., those without options in the confi
     </ul>
 </details>
 
-† These can instead be modified via datapacks (tags, recipes, etc.)
+<sup>† These can instead be modified via datapacks (tags, recipes, etc.)</sup>
+
+<sup>* Make sure to apply the Vexxed Tweaks resource pack included with the mod (and to put it <i>above</i> Vexxed Visuals and mod resources)</sup>
 
 ## Recommended Additions
 
