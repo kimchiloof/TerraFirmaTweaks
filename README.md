@@ -64,6 +64,11 @@ Don't see a mod that needs tweaking? Submit a suggestion issue or PR, or look to
 - Immersive Engineering via [TFC + IE Crossover](https://www.curseforge.com/minecraft/mc-mods/tfc-ie-crossover) and [Advanced TFC Tech Unofficial](https://www.curseforge.com/minecraft/mc-mods/advanced-tfc-tech-unofficial)
 - Farmer's Delight via [Farmer's Delight TFC](https://www.curseforge.com/minecraft/mc-mods/farmers-delight-tfc)
 - Small Ships via [TerraFirmaShips](https://www.curseforge.com/minecraft/mc-mods/terrafirmaships)
+
+Want more tweaks? 
+
+- I highly recommended to download and use [Vexxed Visuals](https://www.curseforge.com/minecraft/texture-packs/terrafirmacraft-vexxed-visuals) and the TerraFirmaTweaks built-in Vexxed Tweaks resource packs
+- Use [Almost Unified](https://www.curseforge.com/minecraft/mc-mods/almost-unified) to hide duplicate ingots, etc. Read their wiki for more info on how.
     
 ## Installation
 
