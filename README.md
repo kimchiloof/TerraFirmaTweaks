@@ -1,7 +1,10 @@
-<h1 align="center">TerraFirmaTweaks</h1>
+<div align="center">
+    <img src="https://github.com/kimchiloof/TerraFirmaTweaks/blob/main/img/icon_rounded.png" alt="Icon" style="radius: 10px; width: 150px;">
+    <h1>TerraFirmaTweaks</h1>
+</div>
 
 <p align="center">
-    <a href="https://github.com/kimchiloof/TerraFirmaTweaks"><img src="https://img.shields.io/github/last-commit/kimchiloof/TerraFirmaTweaks" alt="Repo"></a>
+    <a href="https://github.com/kimchiloof/TerraFirmaTweaks/commits/main/"><img src="https://img.shields.io/github/last-commit/kimchiloof/TerraFirmaTweaks" alt="Repo"></a>
     <a href="https://github.com/kimchiloof/TerraFirmaTweaks/blob/main/LICENSE"><img src="https://img.shields.io/github/license/kimchiloof/TerraFirmaTweaks" alt="License"></a>
     <a href="https://github.com/kimchiloof/TerraFirmaTweaks/issues"><img src="https://img.shields.io/github/issues/kimchiloof/TerraFirmaTweaks" alt="Issues"></a>
 </p>
